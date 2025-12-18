@@ -70,6 +70,7 @@ const Navbar = () => {
     { name: "Services", path: "/service", dropdown: "services" },
     { name: "Products", path: "/product", dropdown: "products" },
     { name: "About", path: "/about" },
+    { name: "Our Package", path: "/our-package" },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
   ];

@@ -12,6 +12,7 @@ import Home from "./pages/Home/Home";
 import Products from "./pages/Product/Product";
 import Services from "./pages/Service/Service";
 import About from "./pages/About/About";
+import OurPackage from "./pages/Package/OurPackage.jsx";
 import Contact from "./pages/Contact/Contact";
 
 // Service DropDown Pages
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/product" element={<Products />} />
         <Route path="/service" element={<Services />} />
         <Route path="/about" element={<About />} />
+        <Route path="/our-package" element={<OurPackage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<Dashboard />} />
 
