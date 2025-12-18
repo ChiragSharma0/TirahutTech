@@ -1,110 +1,165 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function TrihutTech() {
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpenDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <div className="w-full min-h-screen bg-[#F4F4F4] font-[Inter]">
 
       {/* ========= TOP ORANGE BANNER ========= */}
       <section className="w-full flex justify-center px-4 sm:px-6 lg:px-10 mt-140 mb-[-160px] relative z-20">
-        <div className="bg-[#f27b22] text-white rounded-3xl w-full max-w-7xl 
-                        shadow-xl p-8 sm:p-12 
-                        flex flex-col lg:flex-row items-center gap-10 lg:gap-0">
+        <div className="bg-[#f27b22] text-white rounded-3xl w-full max-w-7xl shadow-xl p-8 sm:p-12 flex flex-col lg:flex-row items-center gap-10">
 
-          {/* LEFT TEXT */}
           <div className="max-w-lg space-y-6 text-center lg:text-left">
-            <p className="text-base sm:text-lg">To build anything that truly lasts,</p>
+            <p className="text-base sm:text-lg">
+              To build anything that truly lasts,
+            </p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
               it takes time
             </h1>
 
-            <div className="w-14 h-[2px] bg-white mx-auto lg:mx-0"></div>
+            <div className="w-14 h-[2px] bg-white mx-auto lg:mx-0" />
 
-            <button className="mt-4 text-white font-semibold hover:opacity-80 transition text-sm sm:text-base">
+            <button className="text-white font-semibold hover:opacity-80 transition">
               READ THE STORY ↗
             </button>
-          </div>
-
-          {/* RIGHT IMAGE */}
-          <div className="relative flex justify-center">
-            {/* <img
-              src="/banner.png"
-              alt="Banner"
-              className="w-full max-w-[450px] sm:max-w-[550px] lg:max-w-[620px] rounded-2xl"
-            /> */}
           </div>
         </div>
       </section>
 
       {/* ========= GREEN MAIN SECTION ========= */}
       <section
-  className="
-    w-full 
-    bg-gradient-to-r from-[#01686d] to-[#00444b] 
-    px-6 sm:px-10 lg:px-40
-    pt-44 sm:pt-56 lg:pt-60
-    pb-24 sm:pb-32 lg:pb-40
-    flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-10
-    relative z-10
-  "
->
-  {/* LEFT CONTENT */}
-  <div className="max-w-xl space-y-6 text-white text-center lg:text-left">
-    <div className="flex items-center justify-center lg:justify-start gap-4">
-      <img src="./img/logo.png" alt="Logo" className="w-12 sm:w-14" />
-      <p className="text-sm sm:text-lg text-white/90">All-in-one suite</p>
-    </div>
+        className="w-full bg-gradient-to-r from-[#01686d] to-[#00444b]
+                   px-6 sm:px-10 lg:px-40
+                   pt-56 pb-32
+                   flex flex-col lg:flex-row justify-between items-center gap-16"
+      >
+        {/* LEFT CONTENT */}
+        <div className="max-w-xl space-y-6 text-white text-center lg:text-left relative">
 
-    <h2 className="text-4xl sm:text-5xl font-bold">Tirahut Tech</h2>
+          <div className="flex items-center justify-center lg:justify-start gap-4">
+            <img src="./img/logo.png" alt="Logo" className="w-12" />
+            <p className="text-lg text-white/90">All-in-one suite</p>
+          </div>
 
-    <p className="text-base sm:text-lg font-medium text-white/90">
-      The operating system for business
-    </p>
+          <h2 className="text-5xl font-bold">Tirahut Tech</h2>
 
-    <p className="text-white/90 text-base sm:text-lg leading-relaxed">
-      Run your entire business on Tirahut Tech with our unified cloud software,
-      designed to break down silos and increase organizational efficiency.
-    </p>
+          <p className="text-lg text-white/90">
+            The operating system for business
+          </p>
 
-    <button
-      className="
-        mt-4 bg-[#f27b22] hover:bg-[#d96c1f] 
-        text-white px-6 py-3 rounded-lg
-        text-base sm:text-lg shadow-md transition-all
-      "
-    >
-      TRY TIRAHUT TECH ONE →
-    </button>
-  </div>
+          <p className="text-white/90 leading-relaxed">
+            Run your entire business on Tirahut Tech with our unified cloud
+            software, designed to break down silos and increase efficiency.
+          </p>
 
-  {/* DIVIDER */}
-  <div className="hidden lg:flex h-[200px] w-[1px] bg-white/30 rounded-full"></div>
+          {/* ========= BUTTON + RESPONSIVE DROPDOWN ========= */}
+          <div className="relative inline-block" ref={dropdownRef}>
+            <button
+              onClick={() => setOpenDropdown(!openDropdown)}
+              className="bg-gradient-to-r from-[#f27b22] to-[#d96c1f]
+                         hover:from-[#d96c1f] hover:to-[#f27b22]
+                         text-white px-7 py-3.5 rounded-xl
+                         text-lg font-semibold shadow-lg
+                         flex items-center gap-3
+                         transition-all duration-300 hover:scale-[1.03]"
+            >
+              TRY TIRAHUT TECH
+              <span className="transition-transform duration-300">
+                ▸
+              </span>
+            </button>
 
-  {/* RIGHT CONTENT */}
-  <div className="max-w-xl space-y-6 text-white text-center lg:text-right">
-    <span className="text-5xl">“</span>
+            {openDropdown && (
+              <div
+                className="
+                  absolute z-50 w-64
+                  bg-white/95 backdrop-blur-xl
+                  rounded-2xl shadow-2xl
+                  border border-gray-100 overflow-hidden
 
-    <p className="text-xl sm:text-2xl leading-relaxed">
-      You can be a startup, mid-sized company, or an enterprise—
-      Tirahut Tech One is a boon for all.
-    </p>
+                  /* Mobile */
+                  left-0 top-full mt-4
 
-    <div className="flex flex-col sm:flex-row lg:flex-row items-center gap-4 mt-6 justify-center lg:justify-end">
-      <img
-        src="https://tse4.mm.bing.net/th/id/OIP.Kk4i-k-7bOfsgPv0SJtj5AHaHa?pid=Api&P=0&h=180"
-        alt="CEO"
-        className="w-20 h-20 rounded-full border-2 border-white"
-      />
+                  /* Desktop */
+                  md:left-full md:top-0 md:mt-0 md:ml-4
+                "
+              >
+                <Link
+                  to="/service"
+                  className="group w-full px-6 py-5 flex items-center gap-3
+                             text-gray-800 font-medium transition-all duration-300
+                             hover:bg-gradient-to-r hover:from-[#01686d] hover:to-[#00444b]
+                             hover:text-white"
+                  onClick={() => setOpenDropdown(false)}
+                >
+                  <span className="text-xl group-hover:scale-110 transition">
+                    🚀
+                  </span>
+                  <span className="flex-1">Service</span>
+                  <span className="opacity-0 group-hover:opacity-100 transition">
+                    →
+                  </span>
+                </Link>
 
-      <div className="text-center lg:text-right">
-        <h3 className="text-xl font-bold">Prakarsh Gagdani</h3>
-        <p className="text-sm text-white/80">CEO, 5paisa.com</p>
-      </div>
-    </div>
-  </div>
-</section>
+                <Link
+                  to="/product"
+                  className="group w-full px-6 py-5 flex items-center gap-3
+                             text-gray-800 font-medium transition-all duration-300
+                             hover:bg-gradient-to-r hover:from-[#f27b22] hover:to-[#d96c1f]
+                             hover:text-white"
+                  onClick={() => setOpenDropdown(false)}
+                >
+                  <span className="text-xl group-hover:scale-110 transition">
+                    📦
+                  </span>
+                  <span className="flex-1">Product</span>
+                  <span className="opacity-0 group-hover:opacity-100 transition">
+                    →
+                  </span>
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
 
+        {/* RIGHT CONTENT */}
+        <div className="max-w-xl text-white text-center lg:text-right space-y-6">
+          <span className="text-5xl">“</span>
 
+          <p className="text-2xl leading-relaxed">
+            You can be a startup, mid-sized company, or enterprise —
+            Tirahut Tech One works for all.
+          </p>
+
+          <div className="flex items-center gap-4 justify-center lg:justify-end">
+            <img
+              src="https://tse4.mm.bing.net/th/id/OIP.Kk4i-k-7bOfsgPv0SJtj5AHaHa?pid=Api"
+              alt="CEO"
+              className="w-20 h-20 rounded-full border-2 border-white"
+            />
+            <div>
+              <h3 className="text-xl font-bold">Prakarsh Gagdani</h3>
+              <p className="text-sm text-white/80">CEO, 5paisa.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
