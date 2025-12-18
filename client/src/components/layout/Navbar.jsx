@@ -319,6 +319,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link to="/our-package" onClick={() => setOpen(false)} className="hover:text-[#01686d]">
+              Our Package
+            </Link>
+          </li>
+          <li>
             <Link to="/blog" onClick={() => setOpen(false)} className="hover:text-[#01686d]">
               Blog
             </Link>
