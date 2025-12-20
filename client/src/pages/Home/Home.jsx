@@ -5,7 +5,21 @@ import TrihutTech from "../Public/TrihutTech";
 import EnterpriseSection from "../Public/EnterpriseSection";
 import ClientSatisfied from "../Public/ClientSatisfied";
 import Packages from "../Public/Package";
-import { FaArrowUp, FaTimes, FaLinkedinIn, FaInstagram, FaWhatsapp, FaFacebookF, FaChevronLeft } from "react-icons/fa";
+import WhyChoose from "../Public/WhyChoose";
+
+import { 
+  FaArrowUp, 
+  FaTimes, 
+  FaLinkedinIn, 
+  FaInstagram, 
+  FaWhatsapp, 
+  FaFacebookF, 
+  FaLongArrowAltLeft  // updated arrow icon
+} from "react-icons/fa";
+
+import DevelopmentProcess from "../Public/DevelopmentProcess";
+import SeoHero from "../Public/SeoHero";
+import FAQSection from "../Public/FAQSection";
 
 const PopupForm = ({ onClose }) => {
   return (
@@ -112,6 +126,10 @@ const Home = () => {
       <EnterpriseSection />
       <ClientSatisfied />
       <Packages />
+      <DevelopmentProcess/>
+      <SeoHero/>
+      <WhyChoose/>
+      <FAQSection/>
 
       {/* SCROLL TO TOP */}
       {showScroll && (
@@ -131,36 +149,75 @@ const Home = () => {
       {showPopup && <PopupForm onClose={() => setShowPopup(false)} />}
 
       {/* ================= FLOATING SOCIAL LEFT ARROW ================= */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex items-center">
-        <AnimatePresence>
-          {socialOpen && (
-            <motion.div 
-              initial={{ x: 60, opacity: 0 }} 
-              animate={{ x: 0, opacity: 1 }} 
-              exit={{ x: 60, opacity: 0 }} 
-              transition={{ duration: 0.35 }} 
-              className="flex flex-col gap-4 mr-4"
-            >
-              {/* Social Icons */}
-              <motion.a whileHover={{ scale: 1.2, backgroundColor: "#f27b22" }} className="w-12 h-12 flex items-center justify-center rounded-full text-white shadow-lg bg-gradient-to-br from-[#01686d] to-[#00444b] transition-colors" href="#"><FaLinkedinIn /></motion.a>
-              <motion.a whileHover={{ scale: 1.2, backgroundColor: "#f27b22" }} className="w-12 h-12 flex items-center justify-center rounded-full text-white shadow-lg bg-gradient-to-br from-[#00444b] to-[#01686d] transition-colors" href="#"><FaInstagram /></motion.a>
-              <motion.a whileHover={{ scale: 1.2, backgroundColor: "#f27b22" }} className="w-12 h-12 flex items-center justify-center rounded-full text-white shadow-lg bg-gradient-to-br from-[#01686d] to-[#00444b] transition-colors" href="#"><FaWhatsapp /></motion.a>
-              <motion.a whileHover={{ scale: 1.2, backgroundColor: "#f27b22" }} className="w-12 h-12 flex items-center justify-center rounded-full text-white shadow-lg bg-gradient-to-br from-[#00444b] to-[#01686d] transition-colors" href="#"><FaFacebookF /></motion.a>
-            </motion.div>
-          )}
-        </AnimatePresence>
+<div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex items-center">
 
-        {/* Left-pointing Arrow Button */}
-        <motion.button 
-          onClick={() => setSocialOpen(!socialOpen)} 
-          className="relative h-[110px] w-[44px] flex items-center justify-center rounded-l-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#01686d] to-[#00444b] transition-all"
-          whileHover={{ scale: 1.05, backgroundColor: "#f27b22" }}
-        >
-          <motion.div animate={{ rotate: socialOpen ? 0 : 0 }} transition={{ duration: 0.3 }} className="text-white text-2xl -translate-x-1 z-10">
-            <FaChevronLeft />
-          </motion.div>
-        </motion.button>
-      </div>
+  {/* SOCIAL ICONS */}
+  <AnimatePresence>
+    {socialOpen && (
+      <motion.div
+        initial={{ x: 70, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 70, opacity: 0 }}
+        transition={{ duration: 0.35 }}
+        className="flex flex-col gap-3 mr-3"
+      >
+        {[FaLinkedinIn, FaInstagram, FaWhatsapp, FaFacebookF].map(
+          (Icon, i) => (
+            <motion.a
+              key={i}
+              href="#"
+              whileHover={{ scale: 1.15 }}
+              className="
+                w-11 h-11 rounded-full flex items-center justify-center
+                bg-gradient-to-br from-[#01686d] to-[#00444b]
+                shadow-md
+              "
+            >
+              <Icon className="text-white text-lg" />
+            </motion.a>
+          )
+        )}
+      </motion.div>
+    )}
+  </AnimatePresence>
+
+  {/* SQUARE ARROW BUTTON */}
+  <motion.button
+    onClick={() => setSocialOpen(!socialOpen)}
+    whileHover={{ scale: 1.08 }}
+    className="
+      w-[56px] h-[56px]
+      bg-gradient-to-br from-[#01686d] to-[#00444b]
+      flex items-center justify-center
+      shadow-xl m-1 rounded-lg
+      overflow-visible
+    "
+  >
+    <motion.div
+      animate={{
+        x: socialOpen ? 0 : [0, 6, 0], // aage–peeche
+        rotate: socialOpen ? 180 : 0,
+      }}
+      transition={{
+        x: {
+          duration: 1.2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+        rotate: {
+          duration: 0.3,
+        },
+      }}
+      className="text-white text-xl font-light"
+    >
+      <FaLongArrowAltLeft />
+    </motion.div>
+  </motion.button>
+
+</div>
+
+
+
     </>
   );
 };
