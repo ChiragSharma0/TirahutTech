@@ -1,84 +1,125 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const Packages = () => {
-  const plans = [
-    {
-      name: "Basic",
-      price: 29,
-      features: ["Feature one", "Feature two", "Feature three"],
-    },
-    {
-      name: "Standard",
-      price: 59,
-      features: ["Feature one", "Feature two", "Feature three"],
-    },
-    {
-      name: "Premium",
-      price: 99,
-      features: ["Feature one", "Feature two", "Feature three"],
-    },
-  ];
+/* =========================
+   PACKAGES DATA
+========================= */
+const packages = [
+  {
+    name: "Web Pack",
+    price: "$999 / yr",
+    gradient: "from-[#01686d] to-[#00444b]",
+    features: [
+      "SEO Optimized Website",
+      "Mobile Responsive",
+      "Fast Performance",
+      "Secure Hosting",
+    ],
+    link: "/web-pack",
+  },
+  {
+    name: "SEO Pack",
+    price: "$699 / yr",
+    gradient: "from-[#f27b22] to-[#c85f12]",
+    features: [
+      "Advanced SEO Optimization",
+      "Keyword Research",
+      "Content Strategy",
+      "Performance Reporting",
+    ],
+    link: "/seo-pack",
+    badge: "Popular",
+  },
+  {
+    name: "Combined Pack",
+    price: "$1499 / yr",
+    gradient: "from-[#01686d] to-[#f27b22]",
+    features: [
+      "Web Development + SEO",
+      "Custom Design",
+      "Performance Optimization",
+      "Dedicated Support",
+    ],
+    link: "/combined-pack",
+    badge: "Best Value",
+  },
+];
 
-  return (
-    <>
-      <div className="min-h-screen w-full bg-gray-50 flex flex-col items-center">
+/* =========================
+   PACKAGE CARD COMPONENT
+========================= */
+const PackageCard = ({ pkg }) => (
+  <motion.div
+    whileHover={{ y: -12, scale: 1.04 }}
+    transition={{ duration: 0.4 }}
+    className="relative rounded-3xl p-[1.5px] bg-gradient-to-br from-[#01686d] via-[#f27b22] to-[#00444b]"
+  >
+    <div className="relative bg-white rounded-3xl p-8 h-full backdrop-blur-xl flex flex-col justify-between">
+      {/* BADGE */}
+      {pkg.badge && (
+        <span className="absolute -top-4 left-1/2 -translate-x-1/2
+                         bg-[#f27b22] text-white text-xs font-bold
+                         px-4 py-1 rounded-full shadow-lg">
+          {pkg.badge}
+        </span>
+      )}
 
-        {/* HEADER SECTION (NO BACKGROUND) */}
-        <div
-          className="
-            w-full 
-            py-20 px-5 sm:px-6 text-center
-            pt-32 sm:pt-36
-          "
-        >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight text-teal-900">
-            Our Packages
-          </h1>
-          <p className="text-base sm:text-lg max-w-xl mx-auto opacity-80 text-gray-700">
-            Choose a plan that’s right for your business needs and scale as you grow.
-          </p>
-        </div>
-
-        {/* PRICING CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-5 sm:px-6 py-16 max-w-6xl w-full">
-
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col items-center border border-gray-200 
-                hover:shadow-2xl transition duration-300 h-full"
-            >
-              <h2 className="text-2xl sm:text-3xl font-semibold text-teal-900 mb-2">
-                {plan.name}
-              </h2>
-
-              <p className="text-4xl sm:text-5xl font-bold text-teal-900 mb-1">
-                ${plan.price}
-              </p>
-
-              <p className="text-gray-600 mb-6 text-sm sm:text-base">per month</p>
-
-              <div className="w-full h-px bg-gray-300 mb-6" />
-
-              {/* FEATURES */}
-              <ul className="space-y-4 text-gray-700 mb-10 w-full text-sm sm:text-base">
-                {plan.features.map((feature, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <span className="w-2.5 h-2.5 bg-teal-700 rounded-full"></span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 w-full rounded-xl transition shadow-md">
-                Get Started
-              </button>
-            </div>
-          ))}
-        </div>
+      {/* PRICE AREA */}
+      <div className={`rounded-2xl text-white text-center py-8 mb-8 bg-gradient-to-r ${pkg.gradient}`}>
+        <h2 className="text-lg font-semibold tracking-wide">{pkg.name}</h2>
+        <p className="text-4xl font-extrabold mt-2">{pkg.price}</p>
       </div>
-    </>
+
+      {/* FEATURES */}
+      <ul className="text-sm text-gray-600 space-y-2 mb-8">
+        {pkg.features.map((feature, i) => (
+          <li key={i} className="flex items-center gap-2">
+            <span className="text-[#01686d] font-bold">✔</span> {feature}
+          </li>
+        ))}
+      </ul>
+
+      {/* CTA BUTTON */}
+      <Link
+        to={pkg.link}
+        className="w-full py-3 rounded-xl font-semibold text-white
+                   bg-gradient-to-r from-[#01686d] to-[#00444b]
+                   hover:from-[#00444b] hover:to-[#01686d]
+                   transition shadow-lg text-center"
+      >
+        Get Started
+      </Link>
+    </div>
+  </motion.div>
+);
+
+/* =========================
+   PAGE COMPONENT
+========================= */
+const PackagesSection = () => {
+  return (
+    <div className="min-h-screen w-full bg-gray-50 flex flex-col items-center">
+
+      {/* HEADER */}
+      <div className="w-full text-center py-20 sm:py-24 px-5">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-3 text-teal-900">
+          Our Packages
+        </h1>
+        <p className="text-base sm:text-lg max-w-xl mx-auto opacity-80 text-gray-700">
+          Flexible plans to help your business grow. Choose the one that fits best.
+        </p>
+      </div>
+
+      {/* PACKAGE CARDS */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 max-w-7xl mx-auto px-5 sm:px-6 pb-24">
+        {packages.map((pkg, i) => (
+          <PackageCard key={i} pkg={pkg} />
+        ))}
+      </div>
+      
+    </div>
   );
 };
 
-export default Packages;
+export default PackagesSection;

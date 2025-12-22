@@ -1,75 +1,120 @@
 import React from "react";
-import TeamMembers from "./teamMembers";
+import { motion } from "framer-motion";
 import VisionSection from "./VisionSection";
+import WhySets from "./WhySets";
+import WhyChoose from "../Public/WhyChoose";
+import TeamMembers from "./TeamMembers";
 
-function AboutPage() {
+const AboutSection = () => {
   return (
     <>
-    <div className="min-h-screen w-full bg-gray-50 flex flex-col items-center">
-
-      {/* HEADER SECTION */}
-      <div
-        className="
-          w-full text-white 
-          py-20 px-6 text-center
-          pt-32 sm:pt-36
-        "
-        style={{
-          background: "linear-gradient(135deg, #01686d, #00444b)"
-        }}
+      {/* ===== HEADER (SAME AS SERVICES STYLE) ===== */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full text-white py-24 px-5 text-center pt-32 sm:pt-36 
+                   bg-gradient-to-r from-[#01686d] to-[#00444b]"
       >
-        <h1 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4">
           About Us
         </h1>
-
-        <p className="text-base sm:text-lg max-w-2xl mx-auto opacity-90 leading-relaxed">
-          Learn more about our company and our commitment to providing innovative
-          software solutions.
+        <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
+          Discover who we are and what drives our digital excellence.
         </p>
-      </div>
+      </motion.div>
 
-      {/* ABOUT CARD SECTION */}
-      <div className="max-w-4xl w-full px-5 sm:px-6 py-16 flex justify-center">
-        <div className="bg-[#F8F6F2] shadow-lg rounded-3xl p-8 sm:p-10 w-full text-center border border-gray-200">
+      {/* ===== ABOUT CONTENT SECTION ===== */}
+      <section className="relative w-full bg-white py-20 overflow-hidden">
 
-          {/* ICON */}
-          <div className="flex justify-center mb-6 sm:mb-8">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="#01686d"
-              viewBox="0 0 24 24"
-              width="80"
-              height="80"
-              className="sm:w-20 sm:h-20"
-            >
-              <path d="M12 2L2 7v2h2v9H2v2h20v-2h-2V9h2V7l-10-5zm0 2.18L18.09 7H5.91L12 4.18zM7 9h2v9H7V9zm4 0h2v9h-2V9zm4 0h2v9h-2V9z" />
-            </svg>
-          </div>
+        {/* Soft Background Shapes */}
+        <div className="absolute -top-32 -left-32 w-[380px] h-[380px] bg-[#01686d]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-40 -right-32 w-[380px] h-[380px] bg-[#f27b22]/10 rounded-full blur-[120px]" />
 
-          {/* TITLE */}
-          <h2
-            className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6"
-            style={{ color: "#00444b" }}
+        <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            About Our Company
-          </h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#00444b] leading-tight">
+              Tirahut Tech – A Digital <br />
+              <span className="text-[#01686d]">
+                Marketing Company
+              </span>
+            </h2>
 
-          {/* DESCRIPTION */}
-          <p className="text-gray-700 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-            odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.
-            Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-            Praesent mauris. Fusce nec tellus sed augue semper porta.
-          </p>
+            {/* Accent Line */}
+            <div className="w-20 h-1 bg-[#f27b22] mt-6 mb-6 rounded-full" />
+
+            <p className="text-lg text-[#01686d] font-medium mb-4">
+              Discover our journey and what drives us.
+            </p>
+
+            <p className="text-gray-600 leading-relaxed mb-8 max-w-xl">
+              We empower your brand through data-driven strategies, crafting
+              impactful marketing campaigns that resonate with your audience and
+              deliver measurable results that transform your business growth.
+            </p>
+
+            <button className="px-7 py-3 rounded-xl bg-[#01686d] text-white font-medium shadow-lg 
+                               hover:bg-[#00444b] transition flex items-center gap-2">
+              Learn More
+              <span className="text-[#f27b22] text-xl">→</span>
+            </button>
+          </motion.div>
+
+          {/* RIGHT VIDEO / IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            {/* Border */}
+            <div className="absolute inset-0 rounded-3xl border-2 border-[#01686d]/30" />
+
+            <div className="relative rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src="/img/ik.jpg"
+                autoPlay
+                loop
+                muted
+                className="w-full h-[300px] md:h-[420px] object-cover"
+
+                
+              />
+              
+            </div>
+            
+
+            {/* Floating Accent */}
+            <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-[#f27b22] rounded-2xl shadow-lg" />
+          </motion.div>
+
         </div>
-      </div>
-    </div>
-      <VisionSection/>
-    <TeamMembers/>
-  
+        
+      </section>
 
+    
+      <VisionSection />
+      <WhySets/>
+      <WhyChoose/>
+      <TeamMembers/>
+      
+
+      {/* ===== GRADIENT DIVIDER ===== */}
+      <div className="w-full h-2 bg-gradient-to-r from-[#01686d] via-[#f27b22] to-[#00444b] mt-12" />
+
+
+      
     </>
+  
   );
-}
+};
 
-export default AboutPage;
+export default AboutSection;

@@ -16,344 +16,228 @@ const Navbar = () => {
   const [shadow, setShadow] = useState(false);
 
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-
   const [productsOpen, setProductsOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [packageOpen, setPackageOpen] = useState(false);
+
+  const [mServices, setMServices] = useState(false);
+  const [mProducts, setMProducts] = useState(false);
+  const [mPackage, setMPackage] = useState(false);
 
   const navigate = useNavigate();
 
-  const desktopServicesRef = useRef(null);
-  const mobileServicesRef = useRef(null);
-  const desktopProductsRef = useRef(null);
-  const mobileProductsRef = useRef(null);
-  const mobileMenuRef = useRef(null);
+  const navRef = useRef(null);
+  const mobileRef = useRef(null);
 
-  // Header shadow on scroll
+  /* SCROLL SHADOW */
   useEffect(() => {
     const handleScroll = () => setShadow(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdowns when clicking outside
+  /* OUTSIDE CLICK */
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (desktopServicesRef.current && !desktopServicesRef.current.contains(e.target))
+    const handleClick = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
         setServicesOpen(false);
-
-      if (mobileServicesRef.current && !mobileServicesRef.current.contains(e.target))
-        setMobileServicesOpen(false);
-
-      if (desktopProductsRef.current && !desktopProductsRef.current.contains(e.target))
         setProductsOpen(false);
-
-      if (mobileProductsRef.current && !mobileProductsRef.current.contains(e.target))
-        setMobileProductsOpen(false);
-
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
-        if (open) {
-          setOpen(false);
-          setMobileServicesOpen(false);
-          setMobileProductsOpen(false);
-        }
+        setPackageOpen(false);
+      }
+      if (mobileRef.current && !mobileRef.current.contains(e.target)) {
+        setOpen(false);
+        setMServices(false);
+        setMProducts(false);
+        setMPackage(false);
       }
     };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [open]);
-
-  // NAV ITEMS
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/service", dropdown: "services" },
-    { name: "Products", path: "/product", dropdown: "products" },
-    { name: "About", path: "/about" },
-    { name: "Our Package", path: "/our-package" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
-  ];
-
-  // SERVICES DROPDOWN
-  const servicesDropdown = [
+  /* DROPDOWN DATA */
+  const services = [
     { name: "Web Development", icon: <HiOutlineCode />, path: "/service/web-development" },
     { name: "App Development", icon: <HiOutlineDeviceMobile />, path: "/service/app-development" },
-    { name: "Ecommerce Development", icon: <BsCart />, path: "/service/ecommerce-development" },
+    { name: "Ecommerce", icon: <BsCart />, path: "/service/ecommerce-development" },
     { name: "Automation", icon: <BsGear />, path: "/service/automation" },
     { name: "Marketing", icon: <FaBullhorn />, path: "/service/marketing" },
-    { name: "Customer Software", icon: <FaUsers className="text-3xl" />, path: "/service/customer-software" },
+    { name: "Custom Software", icon: <FaUsers />, path: "/service/customer-software" },
   ];
 
-  // PRODUCTS DROPDOWN
-  const productsDropdown = [
-    { name: "CRM", icon: <AiOutlineTeam className="text-2xl" />, path: "/products/crm" },
-    { name: "HRM", icon: <AiOutlineUsergroupAdd className="text-2xl" />, path: "/products/hrm" },
-    { name: "ERP", icon: <AiOutlineAppstore className="text-2xl" />, path: "/products/erp" },
-    { name: "POS", icon: <AiOutlineShoppingCart className="text-2xl" />, path: "/products/pos" },
+  const products = [
+    { name: "CRM", icon: <AiOutlineTeam />, path: "/products/crm" },
+    { name: "HRM", icon: <AiOutlineUsergroupAdd />, path: "/products/hrm" },
+    { name: "ERP", icon: <AiOutlineAppstore />, path: "/products/erp" },
+    { name: "POS", icon: <AiOutlineShoppingCart />, path: "/products/pos" },
+  ];
+
+  const packages = [
+    { name: "Web Package", path: "/our-package/web" },
+    { name: "SEO Package", path: "/our-package/seo" },
   ];
 
   return (
     <nav
-      className={`w-full fixed top-0 left-0 z-50 bg-white px-6 md:px-12 py-4 flex items-center justify-between border-b border-gray-200 transition-all duration-300 ${
+      ref={navRef}
+      className={`fixed top-0 left-0 w-full z-50 bg-white px-6 md:px-12 py-4 flex justify-between items-center border-b transition ${
         shadow ? "shadow-md" : ""
       }`}
     >
       {/* LOGO */}
-      <Link to="/" className="flex items-center gap-1">
-        <img src="/img/logo.png" alt="Logo" className="w-11 h-11 object-contain" />
-        <div className="flex flex-col leading-tight">
-          <span className="text-[22px] font-extrabold text-[#003C3F] tracking-wide">TIRAHUT</span>
-          <span className="text-[13px] font-semibold text-[#003C3F] -mt-[1px] tracking-wide m-2">
-            TECH
-          </span>
+      <Link to="/" className="flex items-center gap-2">
+        <img src="/img/logo.png" className="w-11 h-11" alt="logo" />
+        <div>
+          <p className="font-extrabold text-[#003C3F] text-[22px]">TIRAHUT</p>
+          <p className="text-[13px] font-semibold text-[#003C3F] -mt-1">TECH</p>
         </div>
       </Link>
 
-      {/* DESKTOP NAVIGATION */}
-      <ul className="hidden md:flex items-center gap-6 text-[15px] font-medium text-black">
-        {navItems.map((item) => {
-          if (item.dropdown === "services") {
-            return (
-              <li key={item.name} className="relative flex items-center" ref={desktopServicesRef}>
-                <button
-                  onClick={() => {
-                    navigate("/service");
-                    setServicesOpen(false);
-                  }}
-                  className="hover:text-[#01686d] transition"
-                >
-                  {item.name}
-                </button>
-                <button className="ml-1 text-sm" onClick={() => setServicesOpen((p) => !p)}>
-                  <FiChevronDown />
-                </button>
+      {/* DESKTOP MENU */}
+      <ul className="hidden md:flex gap-6 font-medium text-[15px]">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">Who We Are</Link></li>
 
-                {servicesOpen && (
-                  <ul className="absolute top-full left-0 bg-white shadow-lg rounded-lg mt-2 w-56 py-2 border border-gray-200 z-50 text-[14px]">
-                    {servicesDropdown.map((service) => (
-                      <li key={service.name}>
-                        <Link
-                          to={service.path}
-                          className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
-                          onClick={() => setServicesOpen(false)}
-                        >
-                          <span className="text-[#01686d]">{service.icon}</span>
-                          {service.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            );
-          }
+        {/* SERVICES */}
+        <li className="relative flex items-center gap-1">
+          <button onClick={() => navigate("/service")}>Services</button>
+          <FiChevronDown onClick={() => setServicesOpen(!servicesOpen)} />
+          {servicesOpen && (
+            <ul className="absolute top-full mt-2 w-56 bg-white border rounded-lg shadow">
+              {services.map((s) => (
+                <Link key={s.name} to={s.path} onClick={() => setServicesOpen(false)}>
+                  <li className="px-4 py-2 flex gap-2 hover:bg-gray-100">
+                    <span className="text-[#01686d]">{s.icon}</span>{s.name}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          )}
+        </li>
 
-          if (item.dropdown === "products") {
-            return (
-              <li key={item.name} className="relative flex items-center" ref={desktopProductsRef}>
-                <button
-                  onClick={() => {
-                    navigate("/product");
-                    setProductsOpen(false);
-                  }}
-                  className="hover:text-[#01686d] transition"
-                >
-                  {item.name}
-                </button>
-                <button className="ml-1 text-sm" onClick={() => setProductsOpen((p) => !p)}>
-                  <FiChevronDown />
-                </button>
+        {/* PRODUCTS */}
+        <li className="relative flex items-center gap-1">
+          <button onClick={() => navigate("/product")}>Products</button>
+          <FiChevronDown onClick={() => setProductsOpen(!productsOpen)} />
+          {productsOpen && (
+            <ul className="absolute top-full mt-2 w-56 bg-white border rounded-lg shadow">
+              {products.map((p) => (
+                <Link key={p.name} to={p.path} onClick={() => setProductsOpen(false)}>
+                  <li className="px-4 py-2 flex gap-2 hover:bg-gray-100">
+                    <span className="text-[#01686d]">{p.icon}</span>{p.name}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          )}
+        </li>
 
-                {productsOpen && (
-                  <ul className="absolute top-full left-0 bg-white shadow-lg rounded-lg mt-2 w-56 py-2 border border-gray-200 z-50 text-[14px]">
-                    {productsDropdown.map((product) => (
-                      <li key={product.name}>
-                        <Link
-                          to={product.path}
-                          className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
-                          onClick={() => setProductsOpen(false)}
-                        >
-                          <span className="text-[#01686d]">{product.icon}</span>
-                          {product.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            );
-          }
+        {/* PACKAGE */}
+        <li className="relative flex items-center gap-1">
+          <button onClick={() => navigate("/our-package")}>Our Package</button>
+          <FiChevronDown onClick={() => setPackageOpen(!packageOpen)} />
+          {packageOpen && (
+            <ul className="absolute top-full mt-2 w-48 bg-white border rounded-lg shadow">
+              {packages.map((pkg) => (
+                <Link key={pkg.name} to={pkg.path} onClick={() => setPackageOpen(false)}>
+                  <li className="px-4 py-2 hover:bg-gray-100">{pkg.name}</li>
+                </Link>
+              ))}
+            </ul>
+          )}
+        </li>
 
-          return (
-            <li key={item.name}>
-              <Link to={item.path} className="hover:text-[#01686d] transition">
-                {item.name}
-              </Link>
-            </li>
-          );
-        })}
+        <li><Link to="/blog">Blog</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
       </ul>
 
-      {/* DESKTOP BUTTONS */}
-      <div className="hidden md:flex items-center gap-3">
-        <Link
-          to="/demo"
-          className="px-6 py-2 bg-[#01686d] hover:bg-[#00444b] text-white font-semibold rounded-lg transition text-sm"
-        >
+      {/* DESKTOP CTA */}
+      <div className="hidden md:flex gap-3">
+        <Link to="/demo" className="px-5 py-2 bg-[#01686d] text-white rounded-lg">
           Request Demo
         </Link>
-        <Link
-          to="/signup"
-          className="px-6 py-2 bg-[#f27b22] hover:bg-[#d86818] text-white font-semibold rounded-lg transition shadow-md text-sm"
-        >
+        <Link to="/signup" className="px-5 py-2 bg-[#f27b22] text-white rounded-lg">
           Sign Up
         </Link>
       </div>
 
-      {/* MOBILE MENU BTN */}
-      <button className="md:hidden text-black" onClick={() => setOpen(true)}>
+      {/* MOBILE MENU BUTTON */}
+      <button className="md:hidden" onClick={() => setOpen(true)}>
         <FiMenu size={26} />
       </button>
 
-      {/* MOBILE MENU PANEL */}
+      {/* MOBILE MENU */}
       <div
-        ref={mobileMenuRef}
-        className={`fixed top-0 right-0 h-full w-72 bg-white shadow-xl z-50 p-6 flex flex-col transition-transform duration-300 ${
+        ref={mobileRef}
+        className={`fixed top-0 right-0 h-full w-72 bg-white shadow-xl p-6 z-50 transition ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* TOP BAR */}
-        <div className="flex items-center justify-between mb-6">
-          <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-1">
-            <img src="/img/logo.png" className="w-10 h-10" alt="Logo" />
-            <div className="flex flex-col leading-tight">
-              <span className="text-[20px] font-extrabold text-black">TIRAHUT</span>
-              <span className="text-[12px] font-semibold text-black -mt-1">TECH</span>
-            </div>
-          </Link>
-          <button onClick={() => setOpen(false)}>
-            <FiX size={28} />
-          </button>
+        <div className="flex justify-between mb-6">
+          <p className="font-bold text-lg">Menu</p>
+          <FiX size={26} onClick={() => setOpen(false)} />
         </div>
 
-        {/* MOBILE NAVIGATION */}
-        <ul className="flex flex-col gap-3 text-[16px] font-medium text-black">
-          <li>
-            <Link to="/" onClick={() => setOpen(false)} className="hover:text-[#01686d]">
-              Home
-            </Link>
-          </li>
+        <ul className="flex flex-col gap-4 font-medium">
+          <Link to="/" onClick={() => setOpen(false)}>Home</Link>
+          <Link to="/about" onClick={() => setOpen(false)}>Who We Are</Link>
 
-          {/* SERVICES - MOBILE */}
-          <li ref={mobileServicesRef}>
-            <div className="flex items-center justify-between w-full">
-              <button
-                onClick={() => {
-                  navigate("/service");
-                  setOpen(false);
-                }}
-              >
-                Services
-              </button>
-              <button onClick={() => setMobileServicesOpen((p) => !p)}>
-                <FiChevronDown />
-              </button>
+          {/* MOBILE SERVICES */}
+          <div>
+            <div className="flex justify-between">
+              <button onClick={() => navigate("/service")}>Services</button>
+              <FiChevronDown onClick={() => setMServices(!mServices)} />
             </div>
-
-            {mobileServicesOpen && (
-              <ul className="pl-4 mt-2 flex flex-col gap-1 text-[15px]">
-                {servicesDropdown.map((service) => (
-                  <li key={service.name}>
-                    <Link
-                      to={service.path}
-                      onClick={() => setOpen(false)}
-                      className="flex items-center gap-2 hover:text-[#01686d]"
-                    >
-                      <span className="text-[#01686d]">{service.icon}</span>
-                      {service.name}
-                    </Link>
-                  </li>
+            {mServices && (
+              <div className="pl-4 mt-2 flex flex-col gap-2">
+                {services.map((s) => (
+                  <Link key={s.name} to={s.path} onClick={() => setOpen(false)}>
+                    {s.name}
+                  </Link>
                 ))}
-              </ul>
+              </div>
             )}
-          </li>
+          </div>
 
-          {/* PRODUCTS - MOBILE */}
-          <li ref={mobileProductsRef}>
-            <div className="flex items-center justify-between w-full">
-              <button
-                onClick={() => {
-                  navigate("/product");
-                  setOpen(false);
-                }}
-              >
-                Products
-              </button>
-              <button onClick={() => setMobileProductsOpen((p) => !p)}>
-                <FiChevronDown />
-              </button>
+          {/* MOBILE PRODUCTS */}
+          <div>
+            <div className="flex justify-between">
+              <button onClick={() => navigate("/product")}>Products</button>
+              <FiChevronDown onClick={() => setMProducts(!mProducts)} />
             </div>
-
-            {mobileProductsOpen && (
-              <ul className="pl-4 mt-2 flex flex-col gap-1 text-[15px]">
-                {productsDropdown.map((product) => (
-                  <li key={product.name}>
-                    <Link
-                      to={product.path}
-                      onClick={() => setOpen(false)}
-                      className="flex items-center gap-2 hover:text-[#01686d]"
-                    >
-                      <span className="text-[#01686d]">{product.icon}</span>
-                      {product.name}
-                    </Link>
-                  </li>
+            {mProducts && (
+              <div className="pl-4 mt-2 flex flex-col gap-2">
+                {products.map((p) => (
+                  <Link key={p.name} to={p.path} onClick={() => setOpen(false)}>
+                    {p.name}
+                  </Link>
                 ))}
-              </ul>
+              </div>
             )}
-          </li>
+          </div>
 
-          <li>
-            <Link to="/about" onClick={() => setOpen(false)} className="hover:text-[#01686d]">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/blog" onClick={() => setOpen(false)} className="hover:text-[#01686d]">
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" onClick={() => setOpen(false)} className="hover:text-[#01686d]">
-              Contact
-            </Link>
-          </li>
+          {/* MOBILE PACKAGE */}
+          <div>
+            <div className="flex justify-between">
+              <button onClick={() => navigate("/our-package")}>Our Package</button>
+              <FiChevronDown onClick={() => setMPackage(!mPackage)} />
+            </div>
+            {mPackage && (
+              <div className="pl-4 mt-2 flex flex-col gap-2">
+                {packages.map((pkg) => (
+                  <Link key={pkg.name} to={pkg.path} onClick={() => setOpen(false)}>
+                    {pkg.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <Link to="/blog" onClick={() => setOpen(false)}>Blog</Link>
+          <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
         </ul>
-
-        {/* CTAs */}
-        <Link
-          to="/demo"
-          onClick={() => setOpen(false)}
-          className="mt-8 w-full py-3 bg-[#01686d] text-white font-semibold rounded-xl text-center"
-        >
-          Request Demo
-        </Link>
-        <Link
-          to="/signup"
-          onClick={() => setOpen(false)}
-          className="mt-4 w-full py-3 bg-[#f27b22] text-white font-semibold rounded-xl text-center"
-        >
-          Sign Up
-        </Link>
       </div>
 
-      {/* BACKDROP */}
-      {open && (
-        <div
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
-          onClick={() => setOpen(false)}
-        />
-      )}
+      {open && <div className="fixed inset-0 bg-black/40 z-40" />}
     </nav>
   );
 };
