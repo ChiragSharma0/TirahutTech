@@ -25,7 +25,7 @@ function Footer() {
         <div className="flex flex-col items-start gap-4">
           <div className="flex items-center gap-3">
             <img
-              src="../assets/logo.png"
+              src="/img/logo.png"
               alt="Trihut Tech Logo"
               className="w-10 h-10 object-contain"
             />
