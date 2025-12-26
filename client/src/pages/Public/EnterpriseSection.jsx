@@ -51,12 +51,12 @@ export default function EnterpriseSection() {
         <div className="relative flex justify-center">
           {/* SOFT BACKGROUND SHAPE */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-[95%] h-[95%] bg-[#eef2f3] rounded-full blur-3xl" />
+            <img src="/img/blob.png" alt="" style={{height:"130%",aspectRatio:"1/1"}} />
           </div>
 
           {/* TESTIMONIAL CARD */}
-          <div className="relative bg-white border border-[#f3c29a] rounded-2xl p-10 shadow-[0_30px_70px_rgba(0,0,0,0.15)] max-w-lg min-h-[320px] flex flex-col justify-between">
-            
+<div className="relative bg-white border border-[2px] border-[#f3c29a] rounded-2xl p-10 shadow-[0_30px_70px_rgba(0,0,0,0.15),0_0_15px_rgba(243,194,154,0.4)] max-w-lg max-h-[400px] aspect-square flex flex-col justify-between">
+   {/* content */}
             {/* QUOTE ICON */}
             <div className="text-[#f27b22] text-5xl leading-none">“</div>
 

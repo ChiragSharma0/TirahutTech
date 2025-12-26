@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { ShapeBlobAOutline,ShapeSplatOutline} from "../../components/ui/Shapes/Shapes";
 
 const faqs = [
   {
@@ -41,7 +42,7 @@ const FAQSection = () => {
       {/* Background Shapes */}
       <div className="absolute top-0 left-0 w-48 h-48 bg-teal-100 rotate-45 opacity-50 -z-10" />
       <div className="absolute bottom-0 right-0 w-48 h-48 bg-orange-100 rotate-12 opacity-50 -z-10" />
-
+      
       <div className="max-w-5xl mx-auto">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-teal-900 mb-12">
