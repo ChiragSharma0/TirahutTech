@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import TrihutTech from "../Public/TrihutTech";
 import EnterpriseSection from "../Public/EnterpriseSection";
 import ClientSatisfied from "../Public/ClientSatisfied";
-import Packages from "../Public/Package";
+
+
 import WhyChoose from "../Public/WhyChoose";
 
 import { 
@@ -20,6 +21,7 @@ import {
 import DevelopmentProcess from "../Public/DevelopmentProcess";
 import SeoHero from "../Public/SeoHero";
 import FAQSection from "../Public/FAQSection";
+import ReadyToTransform from "../Public/ReadyToTransform";
 
 const PopupForm = ({ onClose }) => {
   return (
@@ -125,11 +127,10 @@ const Home = () => {
       <TrihutTech />
       <EnterpriseSection />
       <ClientSatisfied />
-      <Packages />
-      <DevelopmentProcess/>
-      <SeoHero/>
       <WhyChoose/>
+      <ReadyToTransform/>
       <FAQSection/>
+    
 
       {/* SCROLL TO TOP */}
       {showScroll && (
