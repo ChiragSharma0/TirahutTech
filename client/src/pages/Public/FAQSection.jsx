@@ -1,128 +1,87 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
 const faqs = [
   {
     question: "SEO Services and Digital Marketing Agency in Texas",
     answer:
-      "We provide comprehensive SEO and digital marketing services designed to boost your online visibility and drive quality traffic.",
+      "We provide comprehensive SEO and digital marketing services in Texas, helping businesses grow their online presence, generate quality leads, and increase revenue through proven strategies.",
   },
   {
     question: "Best Search Engine Marketing and SEO Company Texas",
     answer:
-      "Our team uses proven strategies including on-page SEO, off-page SEO, PPC campaigns, and content marketing.",
+      "Our team specializes in search engine marketing and SEO solutions designed to improve rankings, boost traffic, and maximize ROI for businesses across Texas.",
   },
   {
     question: "Why is SEO and Internet Marketing so Important?",
     answer:
-      "SEO helps businesses increase visibility, build trust, and generate long-term organic traffic.",
+      "SEO and internet marketing are essential for building brand visibility, attracting targeted customers, increasing credibility, and staying competitive in today’s digital world.",
   },
   {
     question: "What Does an Online Marketing Agency Do?",
     answer:
-      "An online marketing agency helps businesses grow through SEO, paid ads, social media, branding, and analytics.",
+      "An online marketing agency helps businesses grow digitally through SEO, PPC, social media marketing, content marketing, branding, and conversion optimization.",
   },
   {
     question: "What is included in Digital Marketing Services?",
     answer:
-      "Services include SEO, PPC, social media marketing, content creation, email campaigns, and performance tracking.",
-  },
-  {
-    question: "Why Should you Hire an SEO Company?",
-    answer:
-      "Hiring an SEO company saves time, ensures best practices, and delivers measurable growth.",
+      "Digital marketing services include SEO, social media marketing, PPC advertising, content creation, email marketing, analytics, and performance tracking.",
   },
 ];
 
-export default function FAQSection() {
+const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   return (
-    <section className="py-20 px-4 bg-white">
-      
-      {/* Title */}
-      <h2
-        className="text-center text-3xl sm:text-4xl font-bold mb-14"
-        style={{ color: "#00444b" }}
-      >
-        Frequently Asked Questions
-      </h2>
+    <section className="relative py-16 px-4 md:px-8 bg-white overflow-hidden">
+      {/* Background Shapes */}
+      <div className="absolute top-0 left-0 w-48 h-48 bg-teal-100 rotate-45 opacity-50 -z-10" />
+      <div className="absolute bottom-0 right-0 w-48 h-48 bg-orange-100 rotate-12 opacity-50 -z-10" />
 
-      {/* FAQ Container */}
-      <div className="max-w-4xl mx-auto space-y-6">
-        {faqs.map((faq, index) => {
-          const isOpen = activeIndex === index;
+      <div className="max-w-5xl mx-auto">
+        {/* Heading */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-teal-900 mb-12">
+          Frequently Asked Questions
+        </h2>
 
-          return (
-            <motion.div
+        {/* FAQ Items */}
+        <div className="space-y-6">
+          {faqs.map((faq, index) => (
+            <div
               key={index}
-              layout
-              className="
-                rounded-2xl
-                overflow-hidden
-                border border-gray-200
-                shadow-sm
-              "
+              className="bg-white rounded-xl shadow-md transition-all duration-300"
             >
-              {/* QUESTION ROW */}
+              {/* Question */}
               <button
-                onClick={() =>
-                  setActiveIndex(isOpen ? null : index)
-                }
-                className="
-                  w-full flex items-center justify-between
-                  px-6 py-5 text-left
-                  text-white
-                "
-                style={{
-                  background:
-                    "linear-gradient(135deg, #01686d, #00444b)",
-                }}
+                onClick={() => toggleFAQ(index)}
+                className="w-full flex justify-between items-center px-6 py-5 text-left text-teal-900 font-semibold text-base md:text-lg focus:outline-none"
               >
-                <span className="text-sm sm:text-base font-medium">
-                  {faq.question}
+                <span>{faq.question}</span>
+                <span className="ml-4 text-teal-700">
+                  {activeIndex === index ? <FaMinus /> : <FaPlus />}
                 </span>
-
-                {/* Plus / Minus */}
-                <motion.span
-                  animate={{ rotate: isOpen ? 180 : 0 }}
-                  transition={{ duration: 0.25 }}
-                  className="
-                    w-9 h-9 rounded-full
-                    bg-white
-                    flex items-center justify-center
-                  "
-                  style={{ color: "#00444b" }}
-                >
-                  {isOpen ? <FaMinus size={12} /> : <FaPlus size={12} />}
-                </motion.span>
               </button>
 
-              {/* ANSWER */}
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="
-                      bg-white
-                      px-6 py-5
-                      text-gray-600
-                      text-sm
-                      leading-relaxed
-                    "
-                  >
-                    {faq.answer}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          );
-        })}
+              {/* Answer */}
+              <div
+                className={`px-6 overflow-hidden transition-all duration-300 ${
+                  activeIndex === index ? "max-h-40 pb-5" : "max-h-0"
+                }`}
+              >
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default FAQSection;

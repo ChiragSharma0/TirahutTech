@@ -2,7 +2,8 @@ import React from "react";
 import { HelpCircle, Smile, Users, Settings, DollarSign } from "lucide-react";
 
 // COLOR PALETTE
-// Green: #01686d , #00444b
+// Primary Green: #01686d
+// Dark Green: #00444b
 // Orange Accent: #f27b22
 
 const features = [
@@ -30,20 +31,15 @@ const features = [
 
 export default function WhyChooseAdsRole() {
   return (
-    <section className="relative w-full py-24 px-4 overflow-hidden bg-[#00444b]">
-      {/* BACKGROUND */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#01686d] via-[#00444b] to-black opacity-95" />
-
-      <div className="relative max-w-6xl mx-auto text-white">
+    <section className="w-full py-24 px-4 bg-white">
+      <div className="max-w-6xl mx-auto">
         {/* HEADING */}
         <div className="text-center mb-20">
           <div className="flex items-center justify-center gap-4">
-            <span className="bg-[#f27b22] text-black p-3 rounded-full shadow-lg">
-              <HelpCircle size={22} />
-            </span>
+            
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-              Why Choose <span className="text-[#f27b22]">AdsRole?</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#00444b]">
+              Why Choose <span className="text-[#00444b]">Tirahut Tech?</span>
             </h2>
           </div>
 
@@ -57,7 +53,16 @@ export default function WhyChooseAdsRole() {
           {features.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.25)] hover:scale-[1.03] transition-transform duration-300"
+              className="
+                bg-white 
+                rounded-3xl 
+                p-6 md:p-8 
+                shadow-[0_15px_35px_rgba(0,0,0,0.08)]
+                hover:shadow-[0_25px_55px_rgba(0,0,0,0.12)]
+                hover:-translate-y-1
+                transition-all 
+                duration-300
+              "
             >
               <div className="flex items-start gap-5">
                 {/* ICON */}
@@ -70,7 +75,7 @@ export default function WhyChooseAdsRole() {
                   <h3 className="text-xl md:text-2xl font-semibold mb-3 text-[#00444b]">
                     {item.title}
                   </h3>
-                  <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
