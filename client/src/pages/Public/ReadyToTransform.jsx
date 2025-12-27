@@ -1,19 +1,16 @@
 import React from "react";
+import { ShapeTirahutLogo } from "../../components/ui/Shapes/Shapes";
 
 export default function ReadyToTransform() {
   return (
-    <section className="relative w-full py-24 px-4 overflow-hidden bg-[#0b5a5e]">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f6f73] via-[#0b5a5e] to-[#073f42] opacity-95" />
-
-      {/* Subtle Geometric Lines */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[size:40px_40px]" />
+<section className="relative w-full py-24 px-4 overflow-hidden bg-gradient-to-br from-[#0f6f73] via-[#0b5a5e] to-[#073f42] h-[calc(100vh_-_80px)]">      {/* Background Gradient */}
+      <div className="absolute inset-0  opacity-95 scale-[0.8]" >
+        <ShapeTirahutLogo />
       </div>
 
-      {/* Content */}
-      <div className="relative max-w-4xl mx-auto text-center text-white">
-        {/* Heading */}
+    
+
+<div className="relative max-w-4xl mx-auto text-center text-white h-full flex flex-col justify-center">        {/* Heading */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
           Ready to transform your <br className="hidden md:block" />
           business with <span className="font-extrabold">Tirahut Tech?</span>
@@ -44,6 +41,7 @@ export default function ReadyToTransform() {
           <span className="font-medium">Phone:</span> +91 12345 67890
         </div>
       </div>
+
     </section>
   );
 }

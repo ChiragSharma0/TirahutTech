@@ -18,12 +18,11 @@ function TrihutTech() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-[#F4F4F4] font-[Inter]">
+    <div className="w-full min-h-[calc(100vh_-_80px)] bg-[#F4F4F4] font-[Inter]">
 
       {/* ========= TOP ORANGE BANNER ========= */}
       <section className="w-full flex justify-center px-4 sm:px-6 lg:px-10 mt-140 mb-[-160px] relative z-20">
-        <div className="bg-[#f27b22] text-white rounded-3xl w-full max-w-7xl shadow-xl p-8 sm:p-12 flex flex-col lg:flex-row items-center gap-10">
-
+        <div className="bg-[url(/img/Banner.webp)] bg-cover  bg-no-repeat text-white rounded-3xl w-full max-w-7xl shadow-xl p-8 sm:p-12 flex flex-col lg:flex-row items-center gap-10">
           <div className="max-w-lg space-y-6 text-center lg:text-left">
             <p className="text-base sm:text-lg">
               To build anything that truly lasts,
@@ -139,8 +138,8 @@ function TrihutTech() {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="max-w-xl text-white text-center lg:text-right space-y-6">
-          <span className="text-5xl">“</span>
+        <div className="max-w-xl text-black text-center lg:text-right space-y-6 shadow-[10px_10px_0_0] shadow-orange-500 bg-white border-[2px] border-orange-500 rounded-[20px] p-6">
+          <span className="text-5xl text-orange">“</span>
 
           <p className="text-2xl leading-relaxed">
             You can be a startup, mid-sized company, or enterprise —

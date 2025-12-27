@@ -1,9 +1,10 @@
 import React from "react";
 import { ShieldCheck, Settings, TrendingUp } from "lucide-react";
+import { ShapeGearwithMagnifyingGlass, ShapeShieldwithCheckmark, ShapeTrendingUpArrow } from "../../components/ui/Shapes/Shapes";
 
 export default function EnterpriseSection() {
   return (
-    <section className="w-full py-24 px-4 bg-white">
+    <section className="w-full py-24 px-4 bg-white h-[calc(100vh_-_80px)]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT CONTENT */}
@@ -12,18 +13,18 @@ export default function EnterpriseSection() {
           <div className="flex items-center gap-6 mb-8">
             
             {/* ICON 1 */}
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#e8f4f4] shadow-sm">
-              <ShieldCheck size={24} className="text-[#01686d]" />
+            <div className="w-18 h-18 flex items-center justify-center ">
+              <ShapeShieldwithCheckmark />
             </div>
 
             {/* ICON 2 */}
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#e8f4f4] shadow-sm">
-              <Settings size={24} className="text-[#01686d]" />
+            <div className="w-18 h-18 flex items-center justify-center ">
+              <ShapeGearwithMagnifyingGlass />
             </div>
 
             {/* ICON 3 */}
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#fff1e6] shadow-sm">
-              <TrendingUp size={24} className="text-[#f27b22]" />
+            <div className="w-18 h-18 flex items-center justify-center ">
+              <ShapeTrendingUpArrow/>
             </div>
           </div>
 
@@ -51,7 +52,7 @@ export default function EnterpriseSection() {
         <div className="relative flex justify-center">
           {/* SOFT BACKGROUND SHAPE */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <img src="/img/blob.png" alt="" style={{height:"130%",aspectRatio:"1/1"}} />
+            <img src="/img/blob.webp" alt="" style={{height:"130%",aspectRatio:"1/1"}} />
           </div>
 
           {/* TESTIMONIAL CARD */}
