@@ -3,7 +3,7 @@ import { ShapeTirahutLogo } from "../../components/ui/Shapes/Shapes";
 
 export default function ReadyToTransform() {
   return (
-<section className="relative w-full py-24 px-4 overflow-hidden bg-gradient-to-br from-[#0f6f73] via-[#0b5a5e] to-[#073f42] h-[calc(100vh_-_80px)]">      {/* Background Gradient */}
+<section className="relative w-full py-24 px-4 overflow-hidden bg-gradient-to-br from-[#0f6f73] via-[#0b5a5e] to-[#073f42] min-h-[calc(100vh_-_80px)]">      {/* Background Gradient */}
       <div className="absolute inset-0  opacity-95 scale-[0.8]" >
         <ShapeTirahutLogo />
       </div>

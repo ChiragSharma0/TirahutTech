@@ -2,7 +2,7 @@ import React from "react";
 
 const ClientSatisfied = () => {
   return (
-<section className="w-full relative overflow-hidden bg-[url('/img/WorldMap.webp')] bg-cover bg-center bg-no-repeat h-[calc(100vh_-_80px)] py-24 pb-32 px-6 md:px-16 lg:px-28 ">      {/* MAIN CONTENT */}
+<section className="w-full relative overflow-hidden bg-[url('/img/WorldMap.webp')] bg-cover bg-center bg-no-repeat min-h-[calc(100vh_-_80px)] py-24 pb-32 px-6 md:px-16 lg:px-28 ">      {/* MAIN CONTENT */}
       <div className="max-w-7xl relative z-10 text-white">
         {/* Heading */}
         <h1 className="text-4xl md:text-6xl font-bold leading-tight">

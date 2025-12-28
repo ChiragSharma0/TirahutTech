@@ -4,7 +4,7 @@ import { ShapeGearwithMagnifyingGlass, ShapeShieldwithCheckmark, ShapeTrendingUp
 
 export default function EnterpriseSection() {
   return (
-    <section className="w-full py-24 px-4 bg-white h-[calc(100vh_-_80px)]">
+    <section className="w-full py-24 px-4 bg-white min-h-[calc(100vh_-_80px)]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT CONTENT */}
