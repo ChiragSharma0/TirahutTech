@@ -2,6 +2,7 @@ import React from "react";
 
 const ClientSatisfied = () => {
   return (
+<<<<<<< HEAD
     <section
       className="
         relative w-full overflow-hidden
@@ -29,6 +30,10 @@ const ClientSatisfied = () => {
 
       {/* ========= MAIN CONTENT ========= */}
       <div className="max-w-7xl relative z-10 text-white w-full">
+=======
+<section className="w-full relative overflow-hidden bg-[url('/img/WorldMap.webp')] bg-cover bg-center bg-no-repeat min-h-[calc(100vh_-_80px)] py-24 pb-32 px-6 md:px-16 lg:px-28 ">      {/* MAIN CONTENT */}
+      <div className="max-w-7xl relative z-10 text-white">
+>>>>>>> c0538a7ee45424f74c34cbb7fcf52e663986bd43
         {/* Heading */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight md:leading-snug">
           Made in India.

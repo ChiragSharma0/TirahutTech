@@ -2,6 +2,7 @@ import React from "react";
 
 export default function ReadyToTransform() {
   return (
+<<<<<<< HEAD
     <section
       className="
         relative w-full
@@ -16,6 +17,12 @@ export default function ReadyToTransform() {
     >
       {/* OPTIONAL SOFT OVERLAY (depth ke liye) */}
       <div className="absolute inset-0 bg-black/10" />
+=======
+<section className="relative w-full py-24 px-4 overflow-hidden bg-gradient-to-br from-[#0f6f73] via-[#0b5a5e] to-[#073f42] min-h-[calc(100vh_-_80px)]">      {/* Background Gradient */}
+      <div className="absolute inset-0  opacity-95 scale-[0.8]" >
+        <ShapeTirahutLogo />
+      </div>
+>>>>>>> c0538a7ee45424f74c34cbb7fcf52e663986bd43
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
