@@ -7,13 +7,8 @@ import {
 
 export default function EnterpriseSection() {
   return (
-<<<<<<< HEAD
-    <section className="w-full py-16 md:py-24 px-4 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center">
-=======
-    <section className="w-full py-24 px-4 bg-white min-h-[calc(100vh_-_80px)]">
+    <section className="w-full py-24 px-4 bg-white min-h-[calc(100vh_-_80px)] overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
->>>>>>> c0538a7ee45424f74c34cbb7fcf52e663986bd43
 
         {/* LEFT CONTENT */}
         <div className="text-center lg:text-left">
