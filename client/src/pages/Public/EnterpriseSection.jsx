@@ -1,40 +1,38 @@
 import React from "react";
-import { ShieldCheck, Settings, TrendingUp } from "lucide-react";
-import { ShapeGearwithMagnifyingGlass, ShapeShieldwithCheckmark, ShapeTrendingUpArrow } from "../../components/ui/Shapes/Shapes";
+import {
+  ShapeGearwithMagnifyingGlass,
+  ShapeShieldwithCheckmark,
+  ShapeTrendingUpArrow,
+} from "../../components/ui/Shapes/Shapes";
 
 export default function EnterpriseSection() {
   return (
-    <section className="w-full py-24 px-4 bg-white h-[calc(100vh_-_80px)]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="w-full py-16 md:py-24 px-4 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center">
 
         {/* LEFT CONTENT */}
-        <div>
+        <div className="text-center lg:text-left">
+
           {/* ICONS */}
-          <div className="flex items-center gap-6 mb-8">
-            
-            {/* ICON 1 */}
-            <div className="w-18 h-18 flex items-center justify-center ">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8">
+            <div className="w-16 h-16 flex items-center justify-center">
               <ShapeShieldwithCheckmark />
             </div>
-
-            {/* ICON 2 */}
-            <div className="w-18 h-18 flex items-center justify-center ">
+            <div className="w-16 h-16 flex items-center justify-center">
               <ShapeGearwithMagnifyingGlass />
             </div>
-
-            {/* ICON 3 */}
-            <div className="w-18 h-18 flex items-center justify-center ">
-              <ShapeTrendingUpArrow/>
+            <div className="w-16 h-16 flex items-center justify-center">
+              <ShapeTrendingUpArrow />
             </div>
           </div>
 
           {/* HEADING */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#00444b] leading-tight">
-            Tirahut Tech <br /> For Enterprise
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#00444b] leading-tight">
+            Tirahut Tech <br className="hidden sm:block" /> For Enterprise
           </h2>
 
           {/* DESCRIPTION */}
-          <p className="mt-6 text-gray-600 text-sm md:text-base leading-relaxed max-w-xl">
+          <p className="mt-6 text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
             Unlock the full potential of your large-scale operations. Experience
             a unified ecosystem with advanced professional services, robust
             infrastructure, top-tier support, and enterprise-grade security.
@@ -43,29 +41,36 @@ export default function EnterpriseSection() {
           </p>
 
           {/* BUTTON */}
-          <button className="mt-8 inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-[#f27b22] text-white font-semibold shadow-md hover:shadow-lg hover:bg-[#e56f1c] transition-all duration-300">
-            LEARN MORE →
-          </button>
+          <div className="mt-8 flex justify-center lg:justify-start">
+            <button className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-[#f27b22] text-white font-semibold shadow-md hover:shadow-lg hover:bg-[#e56f1c] transition-all duration-300">
+              LEARN MORE →
+            </button>
+          </div>
         </div>
 
         {/* RIGHT TESTIMONIAL */}
         <div className="relative flex justify-center">
-          {/* SOFT BACKGROUND SHAPE */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img src="/img/blob.webp" alt="" style={{height:"130%",aspectRatio:"1/1"}} />
+
+          {/* BACKGROUND BLOB */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <img
+              src="/img/blob.webp"
+              alt=""
+              className="w-[120%] max-w-none opacity-90"
+            />
           </div>
 
           {/* TESTIMONIAL CARD */}
-<div className="relative bg-white border border-[2px] border-[#f3c29a] rounded-2xl p-10 shadow-[0_30px_70px_rgba(0,0,0,0.15),0_0_15px_rgba(243,194,154,0.4)] max-w-lg max-h-[400px] aspect-square flex flex-col justify-between">
-   {/* content */}
-            {/* QUOTE ICON */}
+          <div className="relative bg-white border-2 border-[#f3c29a] rounded-2xl p-6 sm:p-8 lg:p-10 shadow-[0_30px_70px_rgba(0,0,0,0.15),0_0_15px_rgba(243,194,154,0.4)] max-w-md sm:max-w-lg w-full flex flex-col justify-between">
+
+            {/* QUOTE */}
             <div className="text-[#f27b22] text-5xl leading-none">“</div>
 
             {/* TEXT */}
-            <p className="mt-4 text-[#00444b] text-base md:text-lg font-medium leading-relaxed">
+            <p className="mt-4 text-[#00444b] text-sm sm:text-base lg:text-lg font-medium leading-relaxed">
               With our complete business under control, our productivity is up
-              by <span className="font-bold"> 80% </span> in the last year that we
-              have been using Tirahut Tech.
+              <span className="font-bold"> 80% </span>
+              in the last year that we have been using Tirahut Tech.
             </p>
 
             {/* USER */}
@@ -84,6 +89,7 @@ export default function EnterpriseSection() {
                 </p>
               </div>
             </div>
+
           </div>
         </div>
 

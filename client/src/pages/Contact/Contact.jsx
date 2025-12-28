@@ -7,24 +7,9 @@ import { motion } from "framer-motion";
 
 const Contact = () => {
   const contactInfo = [
-    {
-      icon: <FaMapMarkerAlt />,
-      title: "Address",
-      info: "123 Business Street, City, Country",
-      color: "#01686d",
-    },
-    {
-      icon: <HiOutlineMail />,
-      title: "Email",
-      info: "contact@trinit.com",
-      color: "#01686d",
-    },
-    {
-      icon: <FiPhoneCall />,
-      title: "Phone",
-      info: "+91 9876543210",
-      color: "#01686d",
-    },
+    { icon: <FaMapMarkerAlt />, title: "Address", info: "123 Business Street, City, Country" },
+    { icon: <HiOutlineMail />, title: "Email", info: "contact@trinit.com" },
+    { icon: <FiPhoneCall />, title: "Phone", info: "+91 9876543210" },
   ];
 
   const socialMedia = [
@@ -34,37 +19,24 @@ const Contact = () => {
     { icon: <FaInstagram />, url: "https://instagram.com", title: "Instagram" },
   ];
 
-  // Framer Motion Animations
-  const iconVariants = {
-    hover: { scale: 1.2, rotate: 10 },
-  };
+  const iconVariants = { hover: { scale: 1.2, rotate: 10 } };
 
   return (
-    <>
+    <div className="w-full font-[Inter] bg-gray-50">
+
       {/* HERO HEADER */}
       <div className="w-full text-white py-24 px-5 sm:px-6 text-center pt-32 sm:pt-36 bg-gradient-to-r from-[#01686d] to-[#00444b]">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
-          Contact Us
-        </h1>
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">Contact Us</h1>
         <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
           Reach out to us for any queries or support. We would love to hear from you!
         </p>
       </div>
 
-      {/* COMMON WHITE HEADING ABOVE FORM & SOCIAL MEDIA */}
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 py-10 bg-white rounded-3xl shadow-lg mt-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#00444b] text-center">
-          Get in Touch with Us
-        </h2>
-        <p className="text-gray-600 text-center mt-2">
-          Send us a message or connect with us on social media for support and updates.
-        </p>
-      </div>
-
-      {/* CONTACT FORM + SOCIAL MEDIA SIDE BY SIDE */}
+      {/* FORM + SOCIAL MEDIA SECTION */}
       <div className="max-w-6xl mx-auto px-5 sm:px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* LEFT: Contact Form */}
-        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10">
+
+        {/* LEFT SIDE: CONTACT FORM */}
+        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col justify-center order-1 lg:order-1">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#00444b] mb-6 text-center lg:text-left">
             Send Us a Message
           </h2>
@@ -95,14 +67,16 @@ const Contact = () => {
           </form>
         </div>
 
-        {/* RIGHT: Social Media + Contact Info */}
-        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col justify-center items-center lg:items-start">
+        {/* RIGHT SIDE: SOCIAL MEDIA + CONTACT INFO */}
+        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col justify-center items-center lg:items-start order-2 lg:order-2">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#00444b] mb-4 text-center lg:text-left">
             Follow & Contact Us
           </h2>
           <p className="text-gray-600 mb-8 text-center lg:text-left">
             Stay connected with us through our social channels for updates, news, and support.
           </p>
+
+          {/* SOCIAL ICONS */}
           <div className="flex gap-4 mb-6">
             {socialMedia.map((social, index) => (
               <motion.a
@@ -120,19 +94,21 @@ const Contact = () => {
             ))}
           </div>
 
-          <ul className="space-y-3 text-gray-600">
+          {/* CONTACT INFO */}
+          <ul className="space-y-3 text-gray-600 w-full">
             {contactInfo.map((item, index) => (
               <li key={index} className="flex items-center gap-3">
-                <span className="p-2 rounded-md bg-[#01686d] text-white">
+                <span className="p-3 rounded-md bg-[#01686d] text-white text-lg flex items-center justify-center">
                   {item.icon}
                 </span>
-                <span>{item.info}</span>
+                <span className="text-gray-800 font-medium">{item.info}</span>
               </li>
             ))}
           </ul>
         </div>
+
       </div>
-    </>
+    </div>
   );
 };
 

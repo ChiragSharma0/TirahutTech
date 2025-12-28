@@ -11,7 +11,7 @@ exports.track = async (req, res) => {
   try {
     console.log("triggered");
     const visitorId = req.visitorId;
-    if (!visitorId) return res.status(400).json({ error: 'visitorId missing' });
+    if (!visitorId) return res.status(400).json({ error: 'visitorId missing' }); 
 
     const payload = req.body || {};
     const eventType = safeString(payload.eventType) || 'event';

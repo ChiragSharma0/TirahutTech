@@ -127,6 +127,7 @@ const Home = () => {
       <TrihutTech />
       <EnterpriseSection />
       <ClientSatisfied />
+      <WhyChoose/>
       <ReadyToTransform/>
       <FAQSection/>
     
