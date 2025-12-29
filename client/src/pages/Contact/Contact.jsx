@@ -24,12 +24,24 @@ const Contact = () => {
   return (
     <div className="w-full font-[Inter] bg-gray-50">
 
-      {/* HERO HEADER */}
-      <div className="w-full text-white py-24 px-5 sm:px-6 text-center pt-32 sm:pt-36 bg-gradient-to-r from-[#01686d] to-[#00444b]">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">Contact Us</h1>
-        <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
-          Reach out to us for any queries or support. We would love to hear from you!
-        </p>
+      {/* HERO HEADER WITH IMAGE */}
+      <div className="relative w-full text-white py-24 px-5 sm:px-6 text-center pt-32 sm:pt-36 overflow-hidden">
+        {/* IMAGE TAG ADDED */}
+        <img
+          src="/img/servicess.png" // <-- image added
+          alt="Contact Us Background"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-105"
+        />
+        {/* OVERLAY GRADIENT */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#01686d]/90 to-[#00444b]/90"></div>
+
+        {/* HEADER CONTENT */}
+        <div className="relative z-10">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">Contact Us</h1>
+          <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
+            Reach out to us for any queries or support. We would love to hear from you!
+          </p>
+        </div>
       </div>
 
       {/* FORM + SOCIAL MEDIA SECTION */}

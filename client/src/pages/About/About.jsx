@@ -8,20 +8,32 @@ import TeamMembers from "./TeamMembers";
 const AboutSection = () => {
   return (
     <>
-      {/* ===== HEADER (SAME AS SERVICES STYLE) ===== */}
+      {/* ===== HEADER (WITH IMAGE BACKGROUND) ===== */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full text-white py-24 px-5 text-center pt-32 sm:pt-36 
-                   bg-gradient-to-r from-[#01686d] to-[#00444b]"
+        className="relative w-full text-white py-24 px-5 text-center pt-32 sm:pt-36 overflow-hidden"
       >
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-          About Us
-        </h1>
-        <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
-          Discover who we are and what drives our digital excellence.
-        </p>
+        {/* Background Image */}
+        <img
+          src="/img/servicess.png"  // <-- just added image background
+          alt="About Us Background"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-105"
+        />
+
+        {/* Overlay (Gradient + Dark) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#01686d]/90 to-[#00444b]/90"></div>
+
+        {/* CONTENT */}
+        <div className="relative z-10">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            About Us
+          </h1>
+          <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
+            Discover who we are and what drives our digital excellence.
+          </p>
+        </div>
       </motion.div>
 
       {/* ===== ABOUT CONTENT SECTION ===== */}
@@ -47,7 +59,6 @@ const AboutSection = () => {
               </span>
             </h2>
 
-            {/* Accent Line */}
             <div className="w-20 h-1 bg-[#f27b22] mt-6 mb-6 rounded-full" />
 
             <p className="text-lg text-[#01686d] font-medium mb-4">
@@ -75,45 +86,27 @@ const AboutSection = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            {/* Border */}
             <div className="absolute inset-0 rounded-3xl border-2 border-[#01686d]/30" />
-
             <div className="relative rounded-3xl overflow-hidden shadow-xl">
               <img
                 src="/img/ik.jpg"
-                autoPlay
-                loop
-                muted
+                alt="About Section Visual"
                 className="w-full h-[300px] md:h-[420px] object-cover"
-
-                
               />
-              
             </div>
-            
-
-            {/* Floating Accent */}
             <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-[#f27b22] rounded-2xl shadow-lg" />
           </motion.div>
 
         </div>
-        
       </section>
 
-    
       <VisionSection />
-      <WhySets/>
-      <WhyChoose/>
-      <TeamMembers/>
-      
+      <WhySets />
+      <WhyChoose />
+      <TeamMembers />
 
-      {/* ===== GRADIENT DIVIDER ===== */}
       <div className="w-full h-2 bg-gradient-to-r from-[#01686d] via-[#f27b22] to-[#00444b] mt-12" />
-
-
-      
     </>
-  
   );
 };
 

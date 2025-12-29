@@ -9,16 +9,19 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import WhyChooseUs from "./WhyChooseUs";
 
-// Stagger Animation
+// ================= ANIMATIONS =================
 const containerVariants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-// Card Animation
 const cardVariants = {
   hidden: { opacity: 0, y: 35 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
 };
 
 const Services = () => {
@@ -75,20 +78,39 @@ const Services = () => {
 
   return (
     <>
-      {/* HEADER */}
+      {/* ================= HEADER ================= */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full text-white py-24 px-5 text-center pt-32 sm:pt-36 bg-gradient-to-r from-[#01686d] to-[#00444b]"
+        className="relative w-full text-white py-24 px-5 pt-32 sm:pt-36 overflow-hidden"
       >
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Our Services</h1>
-        <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
-          Empowering businesses with professional digital solutions.
-        </p>
+        {/* BACKGROUND IMAGE */}
+        <img
+          src="/img/servicess.png"
+          alt="Services Background"
+          className="
+            absolute inset-0 w-full h-full 
+            object-cover object-center
+            scale-105
+          "
+        />
+
+        {/* OVERLAY (GRADIENT + DARK) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#01686d]/90 to-[#00444b]/90"></div>
+
+        {/* CONTENT */}
+        <div className="relative z-10 text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            Our Services
+          </h1>
+          <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
+            Empowering businesses with professional digital solutions.
+          </p>
+        </div>
       </motion.div>
 
-      {/* MAIN HEADING */}
+      {/* ================= MAIN HEADING ================= */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -100,11 +122,12 @@ const Services = () => {
           Websites & Web Apps That Drive Growth
         </h2>
         <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto mt-4">
-          High-performance websites, apps, and digital solutions tailored to your business.
+          High-performance websites, apps, and digital solutions tailored to
+          your business.
         </p>
       </motion.div>
 
-      {/* SERVICE CARDS */}
+      {/* ================= SERVICE CARDS ================= */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -116,13 +139,13 @@ const Services = () => {
             <Link to={service.link}>
               <motion.div
                 whileHover={{ scale: 1.03 }}
-                className={`
-                  group relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg 
+                className="
+                  group relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg
                   transition duration-300 flex gap-4 items-start min-h-[180px]
-                  hover:bg-[#F27B22] hover:border-[#F27B22] hover:shadow-[0_6px_20px_rgba(242,123,34,0.35)]
-                `}
+                  hover:bg-[#F27B22] hover:border-[#F27B22]
+                  hover:shadow-[0_6px_20px_rgba(242,123,34,0.35)]
+                "
               >
-                {/* ICON */}
                 <div
                   className="text-4xl mt-1 shrink-0 transition duration-300 group-hover:text-white"
                   style={{ color: service.color }}
@@ -130,22 +153,18 @@ const Services = () => {
                   {service.icon}
                 </div>
 
-                {/* TEXT */}
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900 group-hover:text-white mb-1">
                     {service.title}
                   </h3>
-
                   <p className="text-gray-600 text-[14px] leading-relaxed group-hover:text-white mb-1">
                     {service.desc}
                   </p>
-
                   <p className="text-gray-500 text-[13px] leading-relaxed group-hover:text-white">
                     {service.extra}
                   </p>
                 </div>
 
-                {/* ARROW ANIMATION */}
                 <motion.div
                   initial={{ x: 0 }}
                   whileHover={{ x: 8 }}
@@ -160,7 +179,7 @@ const Services = () => {
         ))}
       </motion.div>
 
-      {/* CTA BUTTON BELOW CARDS */}
+      {/* ================= CTA ================= */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -171,7 +190,7 @@ const Services = () => {
         <Link
           to="/contact"
           className="
-            bg-[#F27B22] text-white font-semibold px-8 py-4 
+            bg-[#F27B22] text-white font-semibold px-8 py-4
             rounded-xl shadow-lg text-lg
             hover:bg-[#d86919] hover:shadow-xl transition duration-300
           "
@@ -180,10 +199,8 @@ const Services = () => {
         </Link>
       </motion.div>
 
-      {/* WHY CHOOSE US SECTION */}
       <WhyChooseUs />
 
-      {/* GRADIENT DIVIDER LINE LIKE APP DEVELOPMENT */}
       <div className="w-full h-2 bg-gradient-to-r from-[#01686d] via-[#f27b22] to-[#00444b] mt-12"></div>
     </>
   );

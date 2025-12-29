@@ -69,21 +69,32 @@ const Cell = ({ text, ok }) => (
 export default function OurPackage() {
   return (
     <>
-      {/* ===== HEADER ===== */}
+      {/* ===== HEADER (WITH IMAGE BACKGROUND) ===== */}
       <motion.div
         initial={{ opacity: 0, y: -25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="w-full text-white py-20 sm:py-24 px-5 text-center
-                   mt-12 sm:mt-16
-                   bg-gradient-to-r from-[#01686d] to-[#00444b]"
+        className="relative w-full text-white py-20 sm:py-24 px-5 text-center mt-12 sm:mt-16 overflow-hidden"
       >
-        <h1 className="text-4xl sm:text-5xl font-bold mb-3">
-          Our Web Packages
-        </h1>
-        <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
-          Flexible pricing plans designed for business growth
-        </p>
+        {/* Background Image */}
+        <img
+          src="/img/servicess.png"  // <-- added background image
+          alt="Our Web Packages Background"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-105"
+        />
+
+        {/* Overlay (Gradient + Dark) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#01686d]/90 to-[#00444b]/90"></div>
+
+        {/* CONTENT */}
+        <div className="relative z-10">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">
+            Our Web Packages
+          </h1>
+          <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
+            Flexible pricing plans designed for business growth
+          </p>
+        </div>
       </motion.div>
 
       {/* ===== BODY ===== */}
@@ -100,11 +111,7 @@ export default function OurPackage() {
               className="relative rounded-3xl p-[1.5px]
                          bg-gradient-to-br from-[#01686d] via-[#f27b22] to-[#00444b]"
             >
-              {/* INNER CARD */}
-              <div className="relative bg-white rounded-3xl p-8 h-full
-                              backdrop-blur-xl">
-
-                {/* BADGE */}
+              <div className="relative bg-white rounded-3xl p-8 h-full backdrop-blur-xl">
                 {plan.badge && (
                   <span className="absolute -top-4 left-1/2 -translate-x-1/2
                                    bg-[#f27b22] text-white text-xs font-bold
@@ -113,7 +120,6 @@ export default function OurPackage() {
                   </span>
                 )}
 
-                {/* PRICE AREA */}
                 <div className={`rounded-2xl text-white text-center py-8 mb-8
                                  bg-gradient-to-r ${plan.gradient}`}>
                   <h2 className="text-lg font-semibold tracking-wide">
@@ -124,7 +130,6 @@ export default function OurPackage() {
                   </p>
                 </div>
 
-                {/* FEATURES (STATIC LOOK) */}
                 <ul className="text-sm text-gray-600 space-y-2 mb-8">
                   <li>✔ SEO Optimized Website</li>
                   <li>✔ Mobile Responsive</li>
@@ -132,7 +137,6 @@ export default function OurPackage() {
                   <li>✔ Secure Hosting</li>
                 </ul>
 
-                {/* CTA */}
                 <button
                   className="w-full py-3 rounded-xl font-semibold text-white
                              bg-gradient-to-r from-[#01686d] to-[#00444b]
@@ -179,7 +183,6 @@ export default function OurPackage() {
         </div>
       </div>
 
-      {/* ===== BRAND DIVIDER ===== */}
       <div className="w-full h-2 bg-gradient-to-r from-[#01686d] via-[#f27b22] to-[#00444b]" />
     </>
   );
