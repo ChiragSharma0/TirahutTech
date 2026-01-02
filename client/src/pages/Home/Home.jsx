@@ -118,7 +118,7 @@ const Home = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} className="flex justify-center md:justify-end">
-            <motion.img src="/img/profile.png" alt="Business Dashboard Illustration" className="w-[350px] sm:w-[450px] md:w-[550px] object-contain" initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ duration: 0.8, ease: "easeOut" }} />
+            <motion.img src="/img/l.png" alt="Business Dashboard Illustration" className="w-[350px] sm:w-[450px] md:w-[550px] object-contain" initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ duration: 0.8, ease: "easeOut" }} />
           </motion.div>
         </div>
       </div>
