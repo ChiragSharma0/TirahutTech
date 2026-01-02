@@ -90,66 +90,70 @@ export default function EnterpriseSection() {
         {/* ================= RIGHT TESTIMONIAL ================= */}
         <div className="relative flex justify-center items-center">
 
-          {/* BACKGROUND BLOB */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <img
-              src="/img/blob.webp"
-              alt=""
-              className="
-                w-[140%] sm:w-[130%] lg:w-[120%]
-                max-w-none
-                opacity-90
-              "
-            />
-          </div>
 
-          {/* TESTIMONIAL CARD */}
+
           <div
             className="
               relative
-              bg-white
-              border-2 border-[#f3c29a]
-              rounded-2xl
-              p-6 sm:p-8 lg:p-10
-              shadow-[0_30px_70px_rgba(0,0,0,0.15),0_0_15px_rgba(243,194,154,0.4)]
               max-w-md sm:max-w-lg
               w-full
             "
           >
-            {/* QUOTE */}
-            <div className="text-[#f27b22] text-4xl sm:text-5xl leading-none">
-              “
+            {/* BACKGROUND BLOB */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none  w-[110%] h-[120%]  z-[5]">
+              <img
+                src="/img/blob.webp"
+                alt=""
+                className="
+                 h-full w-full
+                opacity-90
+              "
+              />
             </div>
+            
+          {/* TESTIMONIAL CARD */}
+            <div className="relative h-full w-full bg-white
+              border-2 border-[#f3c29a]
+              rounded-2xl
+              p-6 sm:p-8 lg:p-10
+              shadow-[0_30px_70px_rgba(0,0,0,0.15),0_0_15px_rgba(243,194,154,0.4)] z-[10]">
 
-            {/* TEXT */}
-            <p
-              className="
+
+              {/* QUOTE */}
+              <div className="text-[#f27b22] text-4xl sm:text-5xl leading-none">
+                “
+              </div>
+
+              {/* TEXT */}
+              <p
+                className="
                 mt-4
                 text-[#00444b]
                 text-sm sm:text-base md:text-lg
                 font-medium
                 leading-relaxed
               "
-            >
-              With our complete business under control, our productivity is up
-              <span className="font-bold"> 80% </span>
-              in the last year that we have been using Tirahut Tech.
-            </p>
+              >
+                With our complete business under control, our productivity is up
+                <span className="font-bold"> 80% </span>
+                in the last year that we have been using Tirahut Tech.
+              </p>
 
-            {/* USER */}
-            <div className="mt-7 sm:mt-8 flex items-center gap-4">
-              <img
-                src="https://i.pravatar.cc/100?img=12"
-                alt="Thomas John"
-                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover"
-              />
-              <div>
-                <h4 className="font-semibold text-[#01686d] text-sm sm:text-base">
-                  Thomas John
-                </h4>
-                <p className="text-xs sm:text-sm text-gray-500">
-                  Managing Director, Agappe Diagnostics
-                </p>
+              {/* USER */}
+              <div className="mt-7 sm:mt-8 flex items-center gap-4">
+                <img
+                  src="https://i.pravatar.cc/100?img=12"
+                  alt="Thomas John"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-semibold text-[#01686d] text-sm sm:text-base">
+                    Thomas John
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-500">
+                    Managing Director, Agappe Diagnostics
+                  </p>
+                </div>
               </div>
             </div>
           </div>

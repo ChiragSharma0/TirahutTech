@@ -1,6 +1,6 @@
 // src/components/Home.jsx
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring ,useTransform } from "framer-motion";
 import TrihutTech from "../Public/TrihutTech";
 import EnterpriseSection from "../Public/EnterpriseSection";
 import ClientSatisfied from "../Public/ClientSatisfied";
@@ -100,12 +100,61 @@ const Home = () => {
   useEffect(() => setShowPopup(true), []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const BASE_ROTATE_X = 0;
+  const BASE_ROTATE_Y = 0;
+  const BASE_ROTATE_Z = 0;
+
+
+const mouseX = useMotionValue(0);
+const mouseY = useMotionValue(0);
+const mouseZ = useMotionValue(0);
+
+const springX = useSpring(mouseX, { stiffness: 120, damping: 20 });
+const springY = useSpring(mouseY, { stiffness: 120, damping: 20 });
+const springZ = useSpring(mouseZ, { stiffness: 120, damping: 20 });
+
+const rotateX = useTransform(springX, v => BASE_ROTATE_X + v);
+const rotateY = useTransform(springY, v => BASE_ROTATE_Y + v);
+const rotateZ = useTransform(springZ, v => BASE_ROTATE_Z + v);
+
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+
+    const maxXY = 30;
+    const maxZ = 0;
+
+    const dx = (x - cx) / cx;
+    const dy = (y - cy) / cy;
+
+   mouseY.set(dx * maxXY);
+mouseX.set(-dy * maxXY);
+mouseZ.set(dx * maxZ);
+
+
+  };
+
+  const handleMouseLeave = () => {
+mouseX.set(0);
+mouseY.set(0);
+mouseZ.set(0);
+
+  };
+
 
   return (
     <>
       {/* HERO */}
-      <div className="w-full min-h-screen bg-white flex items-center justify-center px-6 pt-32 sm:pt-36 md:pt-28 lg:pt-28 pb-16">
-        <div className=" relative max-w-7xl w-full grid md:grid-cols-2 grid-cols-1 items-center gap-10 z-[10]">
+      <div className="w-full min-h-screen bg-white flex items-center justify-center px-4 pt-16 sm:pt-16 md:pt-12 lg:pt-12 pb-12">
+        <div className=" relative max-w-7xl w-full  min-h-full grid md:grid-cols-2 grid-cols-1 items-center gap-10 z-[10]"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="text-[#0b2f32] md:text-left text-center">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">Business software <br /> made simple</h1>
             <p className="text-[17px] text-gray-700 mt-5 leading-relaxed max-w-xl mx-auto md:mx-0">
@@ -119,7 +168,48 @@ const Home = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} className="flex justify-center md:justify-end">
-            <motion.img src="/img/l.png" alt="Business Dashboard Illustration" className="w-[350px] sm:w-[450px] md:w-[550px] object-contain" initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ duration: 0.8, ease: "easeOut" }} />
+
+
+
+            <div className="relative w-full h-[550px] bg-transparent flex items-center justify-center overflow-hidden [perspective:2000px]">
+              {/* Layer 1: The Background Image (Circuits) */}
+              <div className="absolute inset-0 z-0 w-full h-full bg-contain bg-no-repeat bg-center opacity-20 pointer-events-none grayscale" style={{ backgroundImage: `url("/img/Circuit.png")` }}></div>
+
+              {/* Layer 2: The Holographic Dashboard Container */}
+              {/* Adjusted rotateX from 55deg to 45deg and rotateZ from -25deg to -20deg for a better match */}
+              <motion.div
+                style={{
+                  rotateX,
+                  rotateY,
+                  rotateZ,
+                  transformStyle: "preserve-3d",
+                  translateZ: 20,
+                }}
+                className="
+    relative z-10 w-[70%] rounded-2xl
+    border border-cyan-300/50
+    shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4),_0_0_20px_2px_rgba(6,182,212,0.2)_inset]
+  "
+              >
+
+
+                {/* Reflection Overlay */}
+                <div className="absolute  rounded-2xl pointer-events-none z-20"></div>
+
+                {/* Dashboard Content Area */}
+                <div className="w-full h-full overflow-hidden rounded-2xl  relative z-10">
+                  <picture className="w-full h-full block">
+                    <source media="(min-width: 1024px)" srcSet="/img/Dashboard.png" />
+                    <img src="/img/DashBoardMobile.png" alt="Dashboard Interface" className="w-full h-full object-cover rounded-xl border border-gray-100" />
+                  </picture>
+                </div>
+
+                {/* The "Ghost" Outline Layer underneath */}
+                <div className="absolute -inset-4 -z-10 rounded-3xl border-[2px] border-cyan-400/20  [transform:translateZ(-40px)]"></div>
+              </motion.div>
+            </div>
+
+
           </motion.div>
         </div>
 

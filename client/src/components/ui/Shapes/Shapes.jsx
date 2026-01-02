@@ -392,10 +392,10 @@ export const ShapeSquiggle = ({
 
 
 export const ShapeTirahutLogo = ({
-  color = "o", thickness = 2, className = ""
+  color = "o", thickness = 2,  opacity="0.25",className = ""
 }) => {
   return (
-    <svg width="100%" height="100%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" opacity="0.25">
+    <svg width="100%" height="100%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" opacity={opacity} >
       <path d="M960,120 L740.6,500 L820.6,500 L960,258.5 L1099.4,500 L1179.4,500 Z" stroke="white" stroke-width="5" fill="none" />
 
       <path d="M717.5,540 L797.5,540 L624.3,840 L940,840 L940,920 L498.1,920 Z" stroke="white" stroke-width="5" fill="none" />

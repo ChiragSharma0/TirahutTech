@@ -33,9 +33,7 @@ const features = [
 export default function WhyChooseAdsRole() {
   return (
     <section className="w-full py-24 px-4 bg-white">
-      <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 rotate-[60deg] z-[5] origin-center " >
-      <ShapeBlobAOutline/>
-      </div>
+      
       <div className="max-w-6xl mx-auto">
         {/* HEADING */}
         <div className="text-center mb-20">

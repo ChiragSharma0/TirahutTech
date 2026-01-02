@@ -1,4 +1,5 @@
 import React from "react";
+import { ShapeTirahutLogo } from "../../components/ui/Shapes/Shapes";
 
 export default function ReadyToTransform() {
   return (
@@ -13,9 +14,12 @@ export default function ReadyToTransform() {
         to-[#073f42]
       "
     >
+
+      <div className="absolute top-[0px] left-[0px] w-full h-full  "> <ShapeTirahutLogo opacity="0.10" /> </div>
+
       {/* CONTENT */}
       <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
-        
+
         {/* HEADING */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
           Ready to transform your <br className="hidden md:block" />
@@ -78,4 +82,3 @@ export default function ReadyToTransform() {
     </section>
   );
 }
- 
