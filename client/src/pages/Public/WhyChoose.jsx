@@ -1,5 +1,6 @@
 import React from "react";
 import { HelpCircle, Smile, Users, Settings, DollarSign } from "lucide-react";
+import { ShapeBeanFilled, ShapeBlobAFilled, ShapeBlobAOutline, ShapeBlobBFilled, ShapeChevronFilled, ShapeScribbleLoop, ShapeSplatFilled } from "../../components/ui/Shapes/Shapes";
 
 // COLOR PALETTE
 // Primary Green: #01686d
@@ -32,11 +33,14 @@ const features = [
 export default function WhyChooseAdsRole() {
   return (
     <section className="w-full py-24 px-4 bg-white">
+      <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 rotate-[60deg] z-[5] origin-center " >
+      <ShapeBlobAOutline/>
+      </div>
       <div className="max-w-6xl mx-auto">
         {/* HEADING */}
         <div className="text-center mb-20">
           <div className="flex items-center justify-center gap-4">
-            
+
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#00444b]">
               Why Choose <span className="text-[#00444b]">Tirahut Tech?</span>
@@ -49,7 +53,10 @@ export default function WhyChooseAdsRole() {
         </div>
 
         {/* CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className=" relative grid grid-cols-1 md:grid-cols-2 gap-10 z-[10]">
+          <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 rotate-[60deg] z-[5] origin-center " // Added bg-color for visibility
+          >            <ShapeSplatFilled />
+          </div>
           {features.map((item, idx) => (
             <div
               key={idx}
@@ -62,6 +69,7 @@ export default function WhyChooseAdsRole() {
                 hover:-translate-y-1
                 transition-all 
                 duration-300
+                z-[10]
               "
             >
               <div className="flex items-start gap-5">

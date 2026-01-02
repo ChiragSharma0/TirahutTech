@@ -410,15 +410,15 @@ export const ShapeShieldwithCheckmark = ({
 }) => {
   return (
     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  {/* Shield Background */}
-  <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" fill="#0f6f73"/>
-  
-  {/* Shadow effect on right side (Optional, adds depth) */}
-  <path d="M12 22C12 22 20 18 20 12V5L12 2V22Z" fill="black" fillOpacity="0.1"/>
-  
-  {/* Checkmark */}
-  <path d="M9 12L11 14L15 10" stroke="#f97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
+      {/* Shield Background */}
+      <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" fill="#0f6f73" />
+
+      {/* Shadow effect on right side (Optional, adds depth) */}
+      <path d="M12 22C12 22 20 18 20 12V5L12 2V22Z" fill="black" fillOpacity="0.1" />
+
+      {/* Checkmark */}
+      <path d="M9 12L11 14L15 10" stroke="#f97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 };
 
@@ -426,15 +426,15 @@ export const ShapeGearwithMagnifyingGlass = ({
   color = "o", thickness = 2, className = ""
 }) => {
   return (
-    <svg 
-      width="64" 
-      height="64" 
-      viewBox="0 0 100 100" 
-      fill="none" 
+    <svg
+      width="64"
+      height="64"
+      viewBox="0 0 100 100"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      
+
       <defs>
         <clipPath id="gear-split-mask">
           <rect x="50" y="0" width="50" height="100" />
@@ -444,15 +444,15 @@ export const ShapeGearwithMagnifyingGlass = ({
       {/* 1. GEAR LAYER */}
       <g>
         {/* Teal Base (Full Gear) */}
-        <path fill="#1E6B7B" d="M90.5,43.2l-9-1.5c-0.6-2.3-1.6-4.4-2.8-6.4l6.1-6.8c0.9-1,0.9-2.6-0.1-3.6l-5.7-5.7c-1-1-2.6-1-3.6-0.1l-6.8,6.1c-2-1.3-4.1-2.2-6.4-2.8l-1.5-9C50.5,12,49.4,11,48,11h-8c-1.4,0-2.5,1-2.7,2.4l-1.5,9c-2.3,0.6-4.4,1.6-6.4,2.8l-6.8-6.1c-1-0.9-2.6-0.9-3.6,0.1l-5.7,5.7c-1,1-1,2.6,0.1,3.6l6.1,6.8c-1.3,2-2.2,4.1-2.8,6.4l-9,1.5C6,43.4,5,44.5,5,45.9v8.1c0,1.4,1,2.5,2.4,2.7l9,1.5c0.6,2.3,1.6,4.4,2.8,6.4l-6.1,6.8c-0.9,1-0.9,2.6,0.1,3.6l5.7,5.7c1,1,2.6,1,3.6,0.1l6.8-6.1c2,1.3,4.1,2.2,6.4,2.8l1.5,9c0.2,1.4,1.3,2.4,2.7,2.4h8c1.4,0,2.5-1,2.7-2.4l1.5-9c2.3-0.6,4.4-1.6,6.4-2.8l6.8,6.1c1,0.9,2.6,0.9,3.6-0.1l5.7-5.7c1-1,1-2.6-0.1-3.6l-6.1-6.8c1.3-2,2.2-4.1,2.8-6.4l9-1.5c1.4-0.2,2.4-1.3,2.4-2.7v-8.1C93,44.5,91.9,43.4,90.5,43.2z M50,68c-9.9,0-18-8.1-18-18s8.1-18,18-18s18,8.1,18,18S59.9,68,50,68z"/>
-        
+        <path fill="#1E6B7B" d="M90.5,43.2l-9-1.5c-0.6-2.3-1.6-4.4-2.8-6.4l6.1-6.8c0.9-1,0.9-2.6-0.1-3.6l-5.7-5.7c-1-1-2.6-1-3.6-0.1l-6.8,6.1c-2-1.3-4.1-2.2-6.4-2.8l-1.5-9C50.5,12,49.4,11,48,11h-8c-1.4,0-2.5,1-2.7,2.4l-1.5,9c-2.3,0.6-4.4,1.6-6.4,2.8l-6.8-6.1c-1-0.9-2.6-0.9-3.6,0.1l-5.7,5.7c-1,1-1,2.6,0.1,3.6l6.1,6.8c-1.3,2-2.2,4.1-2.8,6.4l-9,1.5C6,43.4,5,44.5,5,45.9v8.1c0,1.4,1,2.5,2.4,2.7l9,1.5c0.6,2.3,1.6,4.4,2.8,6.4l-6.1,6.8c-0.9,1-0.9,2.6,0.1,3.6l5.7,5.7c1,1,2.6,1,3.6,0.1l6.8-6.1c2,1.3,4.1,2.2,6.4,2.8l1.5,9c0.2,1.4,1.3,2.4,2.7,2.4h8c1.4,0,2.5-1,2.7-2.4l1.5-9c2.3-0.6,4.4-1.6,6.4-2.8l6.8,6.1c1,0.9,2.6,0.9,3.6-0.1l5.7-5.7c1-1,1-2.6-0.1-3.6l-6.1-6.8c1.3-2,2.2-4.1,2.8-6.4l9-1.5c1.4-0.2,2.4-1.3,2.4-2.7v-8.1C93,44.5,91.9,43.4,90.5,43.2z M50,68c-9.9,0-18-8.1-18-18s8.1-18,18-18s18,8.1,18,18S59.9,68,50,68z" />
+
         {/* Orange Overlay (Right Half Only) */}
-        <path fill="#F49339" clip-path="url(#gear-split-mask)" d="M90.5,43.2l-9-1.5c-0.6-2.3-1.6-4.4-2.8-6.4l6.1-6.8c0.9-1,0.9-2.6-0.1-3.6l-5.7-5.7c-1-1-2.6-1-3.6-0.1l-6.8,6.1c-2-1.3-4.1-2.2-6.4-2.8l-1.5-9C50.5,12,49.4,11,48,11h-8c-1.4,0-2.5,1-2.7,2.4l-1.5,9c-2.3,0.6-4.4,1.6-6.4,2.8l-6.8-6.1c-1-0.9-2.6-0.9-3.6,0.1l-5.7,5.7c-1,1-1,2.6,0.1,3.6l6.1,6.8c-1.3,2-2.2,4.1-2.8,6.4l-9,1.5C6,43.4,5,44.5,5,45.9v8.1c0,1.4,1,2.5,2.4,2.7l9,1.5c0.6,2.3,1.6,4.4,2.8,6.4l-6.1,6.8c-0.9,1-0.9,2.6,0.1,3.6l5.7,5.7c1,1,2.6,1,3.6,0.1l6.8-6.1c2,1.3,4.1,2.2,6.4,2.8l1.5,9c0.2,1.4,1.3,2.4,2.7,2.4h8c1.4,0,2.5-1,2.7-2.4l1.5-9c2.3-0.6,4.4-1.6,6.4-2.8l6.8,6.1c1,0.9,2.6,0.9,3.6-0.1l5.7-5.7c1-1,1-2.6-0.1-3.6l-6.1-6.8c1.3-2,2.2-4.1,2.8-6.4l9-1.5c1.4-0.2,2.4-1.3,2.4-2.7v-8.1C93,44.5,91.9,43.4,90.5,43.2z M50,68c-9.9,0-18-8.1-18-18s8.1-18,18-18s18,8.1,18,18S59.9,68,50,68z"/>
+        <path fill="#F49339" clip-path="url(#gear-split-mask)" d="M90.5,43.2l-9-1.5c-0.6-2.3-1.6-4.4-2.8-6.4l6.1-6.8c0.9-1,0.9-2.6-0.1-3.6l-5.7-5.7c-1-1-2.6-1-3.6-0.1l-6.8,6.1c-2-1.3-4.1-2.2-6.4-2.8l-1.5-9C50.5,12,49.4,11,48,11h-8c-1.4,0-2.5,1-2.7,2.4l-1.5,9c-2.3,0.6-4.4,1.6-6.4,2.8l-6.8-6.1c-1-0.9-2.6-0.9-3.6,0.1l-5.7,5.7c-1,1-1,2.6,0.1,3.6l6.1,6.8c-1.3,2-2.2,4.1-2.8,6.4l-9,1.5C6,43.4,5,44.5,5,45.9v8.1c0,1.4,1,2.5,2.4,2.7l9,1.5c0.6,2.3,1.6,4.4,2.8,6.4l-6.1,6.8c-0.9,1-0.9,2.6,0.1,3.6l5.7,5.7c1,1,2.6,1,3.6,0.1l6.8-6.1c2,1.3,4.1,2.2,6.4,2.8l1.5,9c0.2,1.4,1.3,2.4,2.7,2.4h8c1.4,0,2.5-1,2.7-2.4l1.5-9c2.3-0.6,4.4-1.6,6.4-2.8l6.8,6.1c1,0.9,2.6,0.9,3.6-0.1l5.7-5.7c1-1,1-2.6-0.1-3.6l-6.1-6.8c1.3-2,2.2-4.1,2.8-6.4l9-1.5c1.4-0.2,2.4-1.3,2.4-2.7v-8.1C93,44.5,91.9,43.4,90.5,43.2z M50,68c-9.9,0-18-8.1-18-18s8.1-18,18-18s18,8.1,18,18S59.9,68,50,68z" />
       </g>
 
       {/* 2. "ERASER" LAYER (White Gap) */}
       <g stroke="white" strokeWidth="15" strokeLinecap="round" fill="none">
-        <circle cx="50" cy="50" r="18" /> 
+        <circle cx="50" cy="50" r="18" />
         <line x1="64" y1="64" x2="82" y2="82" />
       </g>
 
@@ -471,22 +471,100 @@ export const ShapeTrendingUpArrow = ({
 }) => {
   return (
     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  {/* Gradient Definition */}
-  <defs>
-    <linearGradient id="growthGradient" x1="4" y1="20" x2="20" y2="4" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#0f6f73" />
-      <stop offset="100%" stopColor="#f97316" />
-    </linearGradient>
-  </defs>
+      {/* Gradient Definition */}
+      <defs>
+        <linearGradient id="growthGradient" x1="4" y1="20" x2="20" y2="4" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#0f6f73" />
+          <stop offset="100%" stopColor="#f97316" />
+        </linearGradient>
+      </defs>
 
-  {/* The Arrow Path */}
-  <path 
-    d="M4 17L10 11L14 15L21 6M21 6H16M21 6V11" 
-    stroke="url(#growthGradient)" 
-    strokeWidth="4" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-  />
-</svg>
+      {/* The Arrow Path */}
+      <path
+        d="M4 17L10 11L14 15L21 6M21 6H16M21 6V11"
+        stroke="url(#growthGradient)"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 };
+
+
+
+export const ShapeCircuit = ({
+  color = "#5a6e7f",
+  thickness = 1.5,
+  className = "",
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 800 800"
+      className={className}
+      width="100%"
+      height="100%"
+    >
+      <g
+        fill="none"
+        stroke={color}
+        strokeWidth={thickness}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* CENTRAL CHIP (Rotated 45 degrees) */}
+        <rect
+          x="385"
+          y="385"
+          width="30"
+          height="30"
+          transform="rotate(45 400 400)"
+          strokeWidth={thickness * 2.5}
+        />
+
+        {/* --- TOP RIGHT ARM (Dense, Long) --- */}
+        <g>
+          <path d="M425 385 L445 385 L580 250 L630 200" /> <circle cx="630" cy="200" r="2.5" fill="none" />
+          <path d="M430 395 L460 395 L600 255 L650 205" /> <circle cx="650" cy="205" r="2.5" fill="none" />
+          <path d="M425 375 L455 345 L550 250 L600 200" /> <circle cx="600" cy="200" r="2.5" fill="none" />
+          <path d="M415 370 L435 350 L500 285 L540 245" /> <circle cx="540" cy="245" r="2.5" fill="none" />
+          <path d="M420 405 L450 405 L520 335 L560 335 L610 285" /> <circle cx="610" cy="285" r="2.5" fill="none" />
+          <path d="M425 415 L455 415 L500 370 L550 370 L640 280" /> <circle cx="640" cy="280" r="2.5" fill="none" />
+          <path d="M435 425 L475 425 L550 350 L680 220" /> <circle cx="680" cy="220" r="2.5" fill="none" />
+        </g>
+
+        {/* --- TOP LEFT ARM (Splayed out) --- */}
+        <g>
+          <path d="M375 385 L355 385 L250 280 L200 280 L160 240" /> <circle cx="160" cy="240" r="2.5" fill="none" />
+          <path d="M380 375 L360 355 L280 275 L220 275 L180 235" /> <circle cx="180" cy="235" r="2.5" fill="none" />
+          <path d="M370 395 L340 395 L270 325 L210 325 L150 265" /> <circle cx="150" cy="265" r="2.5" fill="none" />
+          <path d="M385 370 L365 350 L300 350 L260 310 L190 310" /> <circle cx="190" cy="310" r="2.5" fill="none" />
+          <path d="M390 360 L370 340 L310 340 L240 270" /> <circle cx="240" cy="270" r="2.5" fill="none" />
+        </g>
+
+        {/* --- BOTTOM LEFT ARM (Long, trailing down) --- */}
+        <g>
+          <path d="M375 415 L355 415 L250 520 L200 570" /> <circle cx="200" cy="570" r="2.5" fill="none" />
+          <path d="M380 425 L360 445 L280 525 L240 565" /> <circle cx="240" cy="565" r="2.5" fill="none" />
+          <path d="M370 405 L340 405 L270 475 L220 525" /> <circle cx="220" cy="525" r="2.5" fill="none" />
+          <path d="M385 430 L365 450 L300 515 L260 555" /> <circle cx="260" cy="555" r="2.5" fill="none" />
+          <path d="M395 435 L395 465 L350 510 L300 610" /> <circle cx="300" cy="610" r="2.5" fill="none" />
+          <path d="M405 440 L405 480 L370 515 L330 630" /> <circle cx="330" cy="630" r="2.5" fill="none" />
+        </g>
+
+        {/* --- BOTTOM RIGHT ARM (Wide spread) --- */}
+        <g>
+          <path d="M415 430 L435 450 L550 450 L650 550" /> <circle cx="650" cy="550" r="2.5" fill="none" />
+          <path d="M425 425 L455 425 L560 530 L610 530" /> <circle cx="610" cy="530" r="2.5" fill="none" />
+          <path d="M430 415 L460 415 L500 455 L600 455 L680 535" /> <circle cx="680" cy="535" r="2.5" fill="none" />
+          <path d="M440 405 L470 405 L520 455 L620 455 L700 535" /> <circle cx="700" cy="535" r="2.5" fill="none" />
+          <path d="M435 395 L485 395 L550 460 L650 460 L750 510" /> <circle cx="750" cy="510" r="2.5" fill="none" />
+        </g>
+      </g>
+    </svg>
+  );
+};
+
+
+
