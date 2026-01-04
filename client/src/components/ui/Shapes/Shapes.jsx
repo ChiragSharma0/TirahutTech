@@ -18,8 +18,8 @@ const OUTLINE_COLORS = {
 const FILL_COLORS = {
   t: "#ddedec", // Teal 50
   o: "#FFF7ED", // Peach (Orange 50)
-  do: "#FB923C", // Orange 400
-  dt: "#2DD4BF", // Teal 400
+  do: "#f27b22", // Orange 400
+  dt: "#0d6266", // Teal 400
 
 
 
@@ -48,11 +48,11 @@ export const ShapeSquareOutline = ({
 
 // 2. Rounded Square (Filled)
 export const ShapeSquareFilled = ({
-  color = "t", className = ""
+  color = "t", className = "" ,round = "20"
 }) => {
   return (
     <svg className={`${svgCommon} ${className}`} viewBox="0 0 100 100" fill={FILL_COLORS[color]}>
-      <rect x="5" y="5" width="90" height="90" rx="20" />
+      <rect x="5" y="5" width="90" height="90" rx={round} />
     </svg>
   );
 };

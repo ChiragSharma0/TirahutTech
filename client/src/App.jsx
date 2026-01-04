@@ -24,6 +24,7 @@ import CustomerSoftawre from "./pages/Service/Services/CustomerSoftware";
 import Automation from "./pages/Service/Services/Automation";
 import {trackPage } from "./Config/Track.js";
 import Dashboard from "./pages/ADMIN/Dashboard.jsx";
+import Blog from "./pages/Blog/Blog.jsx";
 
 const App = () => {
 
@@ -41,8 +42,10 @@ const App = () => {
       <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product" element={<Products />} />
-        <Route path="/service" element={<Services />} />
+        <Route path="/blog" element={<Blog />} />
+
+{/*         <Route path="/product" element={<Products />} />
+ */}        <Route path="/service" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/our-package" element={<OurPackage />} />
         <Route path="/contact" element={<Contact />} />

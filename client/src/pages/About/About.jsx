@@ -4,6 +4,7 @@ import VisionSection from "./VisionSection";
 import WhySets from "./WhySets";
 import WhyChoose from "../Public/WhyChoose";
 import TeamMembers from "./TeamMembers";
+import { ShapeBeanOutline, ShapeBlobAOutline, ShapeChevronFilled, ShapeCircuit, ShapeHexagonFilled, ShapeQuadFilled, ShapeQuadOutline, ShapeSquareFilled, ShapeTriangleOutline } from "../../components/ui/Shapes/Shapes";
 
 const AboutSection = () => {
   return (
@@ -40,10 +41,19 @@ const AboutSection = () => {
       <section className="relative w-full bg-white py-20 overflow-hidden">
 
         {/* Soft Background Shapes */}
-        <div className="absolute -top-32 -left-32 w-[380px] h-[380px] bg-[#01686d]/10 rounded-full blur-[120px]" />
-        <div className="absolute top-40 -right-32 w-[380px] h-[380px] bg-[#f27b22]/10 rounded-full blur-[120px]" />
 
-        <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div className="absolute bottom-[-250px] left-[200px] w-[300px] h-[300px] rotate-[0deg] z-[5]" >
+          <ShapeSquareFilled color="do" round="10" />
+        </div>
+        <div className="absolute top-[-90px] right-[200px] w-[150px] h-[150px] rotate-[-40deg] z-[5]" >
+          <ShapeQuadFilled color="t" />
+        </div>
+
+        <div className="absolute bottom-[40vh] right-[-80px] w-[200px] h-[200px] rotate-[-45deg] z-[5]" >
+          <ShapeTriangleOutline color="o" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center z-[10]">
 
           {/* LEFT CONTENT */}
           <motion.div
@@ -52,7 +62,10 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#00444b] leading-tight">
+            <h2 className="relative text-4xl md:text-5xl font-bold text-[#00444b] leading-tight z-[10]">
+              <div className="absolute top-[0px] left-[0px]  translate-x-[-30%] translate-y-[-25%] h-[1.5em] rotate-[60deg] z-[-5]" >
+                <ShapeHexagonFilled color="o" />
+              </div>
               Tirahut Tech – A Digital <br />
               <span className="text-[#01686d]">
                 Marketing Company

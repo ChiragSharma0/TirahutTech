@@ -64,12 +64,12 @@ const Navbar = () => {
     { name: "Custom Software", icon: <FaUsers />, path: "/service/customer-software" },
   ];
 
-  const products = [
+/*   const products = [
     { name: "CRM", icon: <AiOutlineTeam />, path: "/products/crm" },
     { name: "HRM", icon: <AiOutlineUsergroupAdd />, path: "/products/hrm" },
     { name: "ERP", icon: <AiOutlineAppstore />, path: "/products/erp" },
     { name: "POS", icon: <AiOutlineShoppingCart />, path: "/products/pos" },
-  ];
+  ]; */
 
   const packages = [
     { name: "Web Package", path: "/our-package/web" },
@@ -115,7 +115,7 @@ const Navbar = () => {
         </li>
 
         {/* PRODUCTS */}
-        <li className="relative flex items-center gap-1">
+        {/* <li className="relative flex items-center gap-1">
           <button onClick={() => navigate("/product")}>Products</button>
           <FiChevronDown onClick={() => setProductsOpen(!productsOpen)} />
           {productsOpen && (
@@ -129,7 +129,7 @@ const Navbar = () => {
               ))}
             </ul>
           )}
-        </li>
+        </li> */}
 
         {/* PACKAGE */}
         <li className="relative flex items-center gap-1">

@@ -48,7 +48,7 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto px-5 sm:px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
 
         {/* LEFT SIDE: CONTACT FORM */}
-        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col justify-center order-1 lg:order-1">
+        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col justify-center order-2 lg:order-2">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#00444b] mb-6 text-center lg:text-left">
             Send Us a Message
           </h2>
@@ -80,7 +80,7 @@ const Contact = () => {
         </div>
 
         {/* RIGHT SIDE: SOCIAL MEDIA + CONTACT INFO */}
-        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col justify-center items-center lg:items-start order-2 lg:order-2">
+        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col justify-center items-center lg:items-start order-1 lg:order-1">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#00444b] mb-4 text-center lg:text-left">
             Follow & Contact Us
           </h2>

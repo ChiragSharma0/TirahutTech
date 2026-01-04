@@ -1,6 +1,6 @@
 // src/components/Home.jsx
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring ,useTransform } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import TrihutTech from "../Public/TrihutTech";
 import EnterpriseSection from "../Public/EnterpriseSection";
 import ClientSatisfied from "../Public/ClientSatisfied";
@@ -100,22 +100,23 @@ const Home = () => {
   useEffect(() => setShowPopup(true), []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+
   const BASE_ROTATE_X = 0;
   const BASE_ROTATE_Y = 0;
   const BASE_ROTATE_Z = 0;
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const mouseZ = useMotionValue(0);
 
-const mouseX = useMotionValue(0);
-const mouseY = useMotionValue(0);
-const mouseZ = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 120, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 120, damping: 20 });
+  const springZ = useSpring(mouseZ, { stiffness: 120, damping: 20 });
 
-const springX = useSpring(mouseX, { stiffness: 120, damping: 20 });
-const springY = useSpring(mouseY, { stiffness: 120, damping: 20 });
-const springZ = useSpring(mouseZ, { stiffness: 120, damping: 20 });
-
-const rotateX = useTransform(springX, v => BASE_ROTATE_X + v);
-const rotateY = useTransform(springY, v => BASE_ROTATE_Y + v);
-const rotateZ = useTransform(springZ, v => BASE_ROTATE_Z + v);
+  const rotateX = useTransform(springX, v => BASE_ROTATE_X + v);
+  const rotateY = useTransform(springY, v => BASE_ROTATE_Y + v);
+  const rotateZ = useTransform(springZ, v => BASE_ROTATE_Z + v);
 
 
   const handleMouseMove = (e) => {
@@ -132,17 +133,17 @@ const rotateZ = useTransform(springZ, v => BASE_ROTATE_Z + v);
     const dx = (x - cx) / cx;
     const dy = (y - cy) / cy;
 
-   mouseY.set(dx * maxXY);
-mouseX.set(-dy * maxXY);
-mouseZ.set(dx * maxZ);
+    mouseY.set(dx * maxXY);
+    mouseX.set(-dy * maxXY);
+    mouseZ.set(dx * maxZ);
 
 
   };
 
   const handleMouseLeave = () => {
-mouseX.set(0);
-mouseY.set(0);
-mouseZ.set(0);
+    mouseX.set(0);
+    mouseY.set(0);
+    mouseZ.set(0);
 
   };
 
@@ -171,43 +172,7 @@ mouseZ.set(0);
 
 
 
-            <div className="relative w-full h-[550px] bg-transparent flex items-center justify-center overflow-hidden [perspective:2000px]">
-              {/* Layer 1: The Background Image (Circuits) */}
-              <div className="absolute inset-0 z-0 w-full h-full bg-contain bg-no-repeat bg-center opacity-20 pointer-events-none grayscale" style={{ backgroundImage: `url("/img/Circuit.png")` }}></div>
-
-              {/* Layer 2: The Holographic Dashboard Container */}
-              {/* Adjusted rotateX from 55deg to 45deg and rotateZ from -25deg to -20deg for a better match */}
-              <motion.div
-                style={{
-                  rotateX,
-                  rotateY,
-                  rotateZ,
-                  transformStyle: "preserve-3d",
-                  translateZ: 20,
-                }}
-                className="
-    relative z-10 w-[70%] rounded-2xl
-    border border-cyan-300/50
-    shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4),_0_0_20px_2px_rgba(6,182,212,0.2)_inset]
-  "
-              >
-
-
-                {/* Reflection Overlay */}
-                <div className="absolute  rounded-2xl pointer-events-none z-20"></div>
-
-                {/* Dashboard Content Area */}
-                <div className="w-full h-full overflow-hidden rounded-2xl  relative z-10">
-                  <picture className="w-full h-full block">
-                    <source media="(min-width: 1024px)" srcSet="/img/Dashboard.png" />
-                    <img src="/img/DashBoardMobile.png" alt="Dashboard Interface" className="w-full h-full object-cover rounded-xl border border-gray-100" />
-                  </picture>
-                </div>
-
-                {/* The "Ghost" Outline Layer underneath */}
-                <div className="absolute -inset-4 -z-10 rounded-3xl border-[2px] border-cyan-400/20  [transform:translateZ(-40px)]"></div>
-              </motion.div>
-            </div>
+            <motion.img src="/img/image.png" alt="Business Dashboard Illustration" className="w-[350px] sm:w-[450px] md:w-[550px] object-contain" initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ duration: 0.8, ease: "easeOut" }} />
 
 
           </motion.div>

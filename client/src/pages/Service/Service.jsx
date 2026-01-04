@@ -8,6 +8,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import WhyChooseUs from "./WhyChooseUs";
+import { ShapeCircleFilled, ShapeHexagonFilled, ShapeQuadFilled, ShapeShardAFilled, ShapeShardAOutline } from "../../components/ui/Shapes/Shapes";
 
 // ================= ANIMATIONS =================
 const containerVariants = {
@@ -116,7 +117,7 @@ const Services = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="px-6 md:px-12 max-w-6xl mx-auto mt-14 mb-10 text-center"
+        className=" relative px-6 md:px-12 max-w-6xl mx-auto mt-14 mb-10 text-center"
       >
         <h2 className="text-3xl sm:text-4xl font-bold text-[#003C3F]">
           Websites & Web Apps That Drive Growth
@@ -132,8 +133,12 @@ const Services = () => {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-1 sm:grid-cols-2 gap-7 px-6 md:px-12 max-w-6xl mx-auto pb-10"
+        className=" relative grid grid-cols-1 sm:grid-cols-2 gap-7 px-6 md:px-12 max-w-6xl mx-auto pb-10"
       >
+
+        <div className="absolute top-[0px] left-[0px] -translate-y-[50%]  w-[80px] h-[80px] rotate-[-95deg] z-[-1]">
+          <ShapeHexagonFilled color="o" />
+        </div>
         {services.map((service, index) => (
           <motion.div variants={cardVariants} key={index}>
             <Link to={service.link}>
@@ -185,8 +190,17 @@ const Services = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="w-full flex justify-center mt-4 mb-20"
+        className="relative w-full flex justify-center mt-4 mb-20"
       >
+
+        <div className="absolute top-[50%] left-[25%]  w-[100px] h-[100px] rotate-[-95deg] z-[-1]">
+          <ShapeQuadFilled color="t" />
+        </div>
+
+        <div className="absolute top-[-50%] right-[25%]  w-[100px]  rotate-[95deg] z-[-1]">
+          <ShapeShardAFilled color="o" />
+        </div>
+
         <Link
           to="/contact"
           className="

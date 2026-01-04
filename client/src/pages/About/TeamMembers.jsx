@@ -2,6 +2,7 @@
 import React from "react";
 import { FaLinkedinIn, FaInstagram, FaGlobe } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { ShapeHexagonFilled, ShapeSquareFilled, ShapeQuadFilled, ShapeTriangleOutline, ShapeScribbleLoop, ShapeShardBFilled, ShapeShardCFilled, ShapeShardCOutline, ShapeShardBOutline } from "../../components/ui/Shapes/Shapes";
 
 const teamMembers = [
   {
@@ -83,14 +84,32 @@ const TeamCard = ({ member }) => (
 
 const TeamSection = () => {
   return (
-    <section className="py-24 px-6 md:px-16 lg:px-28 bg-white">
+
+    <section className="relative py-24 px-6 md:px-16 lg:px-28 bg-white overflow-hidden">
+
+      <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] min-w-[100px]  w-[15%]  rotate-[-95deg] z-[5] rotate-[95deg]">
+        <ShapeShardBOutline color="o" thickness={2} />
+      </div>
+
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-[#00444b]">Meet Our Team</h2>
-        <p className="mt-2 text-[#01686d] max-w-md mx-auto text-sm">
+
+
+        <h2 className="text-4xl font-bold text-[#00444b] relative inline-block z-10">
+
+
+          <div className="absolute top-1/2 left-[0px] -translate-y-[70%] -translate-x-[10px]  h-[150%] max-h-[100px] rotate-[-95deg] z-[-1]">
+            <ShapeShardCFilled color="t" />
+          </div>
+
+          Meet Our Team
+        </h2>
+
+        <p className="relative mt-2 text-[#01686d] max-w-md mx-auto text-sm z-[15]">
           The talented people behind our success
         </p>
       </div>
-      <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center">
+
+      <div className="relative grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center z-[10]">
         {teamMembers.map((member, idx) => (
           <TeamCard key={idx} member={member} />
         ))}

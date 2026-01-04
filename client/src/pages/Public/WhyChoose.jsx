@@ -1,6 +1,6 @@
 import React from "react";
 import { HelpCircle, Smile, Users, Settings, DollarSign } from "lucide-react";
-import { ShapeBeanFilled, ShapeBlobAFilled, ShapeBlobAOutline, ShapeBlobBFilled, ShapeChevronFilled, ShapeScribbleLoop, ShapeSplatFilled } from "../../components/ui/Shapes/Shapes";
+import { ShapeBeanFilled, ShapeBlobAFilled, ShapeBlobAOutline, ShapeBlobBFilled, ShapeChevronFilled, ShapeScribbleLoop, ShapeShardCFilled, ShapeSplatFilled } from "../../components/ui/Shapes/Shapes";
 
 // COLOR PALETTE
 // Primary Green: #01686d
@@ -32,7 +32,7 @@ const features = [
 
 export default function WhyChooseAdsRole() {
   return (
-    <section className="w-full py-24 px-4 bg-white">
+    <section className="w-full py-24 px-4 bg-[#f7f7f7]">
       
       <div className="max-w-6xl mx-auto">
         {/* HEADING */}
@@ -52,8 +52,8 @@ export default function WhyChooseAdsRole() {
 
         {/* CARDS */}
         <div className=" relative grid grid-cols-1 md:grid-cols-2 gap-10 z-[10]">
-          <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 rotate-[60deg] z-[5] origin-center " // Added bg-color for visibility
-          >            <ShapeSplatFilled />
+          <div className="absolute top-1/2 left-1/2 w-[200px] h-[200px] -translate-x-1/2 -translate-y-1/2 rotate-[65deg] z-[5] origin-center " // Added bg-color for visibility
+          >            <ShapeShardCFilled color="do" />
           </div>
           {features.map((item, idx) => (
             <div

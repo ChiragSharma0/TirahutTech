@@ -1,5 +1,6 @@
 import React from "react";
 import { FaBullhorn, FaUsers, FaChessKnight, FaChartLine } from "react-icons/fa";
+import { ShapeHexagonFilled, ShapeSquareFilled, ShapeQuadFilled, ShapeTriangleOutline } from "../../components/ui/Shapes/Shapes";
 
 const WhyChooseUs = () => {
   const items = [
@@ -29,8 +30,17 @@ const WhyChooseUs = () => {
     <section className="relative w-full py-24 bg-white overflow-hidden">
 
       {/* Soft Background Accents */}
-      <div className="absolute -top-32 -left-32 w-[380px] h-[380px] bg-[#01686d]/10 rounded-full blur-[120px]" />
-      <div className="absolute top-40 -right-32 w-[380px] h-[380px] bg-[#f27b22]/10 rounded-full blur-[120px]" />
+
+      <div className="absolute bottom-[20px] left-[20px] w-[100px] h-[100px] rotate-[0deg] z-[5]" >
+        <ShapeSquareFilled color="o" round="10" />
+      </div>
+      <div className="absolute top-[-90px] right-[200px] w-[150px] h-[150px] rotate-[-40deg] z-[5]" >
+        <ShapeQuadFilled color="dt" />
+      </div>
+
+      <div className="absolute bottom-[40vh] right-[-80px] w-[200px] h-[200px] rotate-[-45deg] z-[5]" >
+        <ShapeTriangleOutline color="do" />
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-6">
 
@@ -47,7 +57,9 @@ const WhyChooseUs = () => {
         </div>
 
         {/* CARDS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="relative  grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="absolute top-0 left-0 w-[100px] h-[100px] -translate-x-1/2 -translate-y-1/2 z-[5] rotate-[15deg]">          <ShapeHexagonFilled color="t" />
+          </div>
           {items.map((item, index) => (
             <div
               key={index}
@@ -61,6 +73,7 @@ const WhyChooseUs = () => {
                 hover:bg-[#f27b22]
                 hover:border-[#f27b22]
                 hover:shadow-[0_18px_40px_rgba(242,123,34,0.45)]
+                z-[10]
               "
             >
               {/* Icon Box */}
