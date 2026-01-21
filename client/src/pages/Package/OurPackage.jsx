@@ -46,7 +46,7 @@ const rows = [
   { e:{text:"Social Media Profile Creation",ok:false}, a:{text:"Social Media Profile Creation",ok:true}, p:{text:"Social Media Profile Creation",ok:true}, en:{text:"Social Media Profile Creation",ok:true}},
   { e:{text:"Social Media Profile Linking",ok:false}, a:{text:"Social Media Profile Linking",ok:true}, p:{text:"Social Media Profile Linking",ok:true}, en:{text:"Social Media Profile Linking",ok:true}},
 ];
-  
+
 /* =========================
    TABLE CELL
 ========================= */
@@ -69,29 +69,35 @@ const Cell = ({ text, ok }) => (
 export default function OurPackage() {
   return (
     <>
-      {/* ===== HEADER (WITH IMAGE BACKGROUND) ===== */}
+      {/* ===== HEADER (MATCHING SERVICES HEADER) ===== */}
       <motion.div
-        initial={{ opacity: 0, y: -25 }}
+        initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative w-full text-white py-20 sm:py-24 px-5 text-center mt-12 sm:mt-16 overflow-hidden"
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative w-full py-28 sm:py-32 px-5 text-center overflow-hidden bg-[#e9f4f3]"
       >
-        {/* Background Image */}
-        <img
-          src="/img/servicess.png"  // <-- added background image
-          alt="Our Web Packages Background"
-          className="absolute inset-0 w-full h-full object-cover object-center scale-105"
-        />
+        {/* ===== BACKGROUND SHAPES ===== */}
+        <div className="absolute -top-32 -left-32 w-[380px] h-[180px] bg-[#00444b] rotate-45 opacity-90" />
+        <div className="absolute top-24 left-40 w-[80px] h-[80px] bg-[#f27b22] rotate-45 shadow-lg" />
 
-        {/* Overlay (Gradient + Dark) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#01686d]/90 to-[#00444b]/90"></div>
+        <div className="absolute -bottom-36 -left-28 w-[380px] h-[180px] bg-[#01686d] rotate-45 opacity-90" />
+        <div className="absolute bottom-24 left-16 w-[240px] h-[6px] bg-[#f27b22] rotate-45" />
 
-        {/* CONTENT */}
-        <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-3">
+        <div className="absolute -top-36 -right-36 w-[400px] h-[200px] bg-[#00444b] rotate-45 opacity-90" />
+        <div className="absolute top-28 right-28 w-[200px] h-[6px] bg-[#f27b22] rotate-45" />
+
+        <div className="absolute -bottom-24 right-24 w-[100px] h-[100px] bg-[#f27b22] rotate-45 shadow-lg" />
+
+        {/* Soft Glass */}
+        <div className="absolute top-[35%] left-[30%] w-[200px] h-[200px] bg-[#01686d]/10 rotate-45 rounded-xl hidden sm:block" />
+        <div className="absolute bottom-[25%] right-[35%] w-[220px] h-[220px] bg-[#00444b]/10 rotate-45 rounded-xl hidden sm:block" />
+
+        {/* ===== CONTENT ===== */}
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00444b] mb-3">
             Our Web Packages
           </h1>
-          <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
+          <p className="text-sm sm:text-base md:text-lg text-[#01686d] leading-relaxed">
             Flexible pricing plans designed for business growth
           </p>
         </div>
@@ -99,17 +105,14 @@ export default function OurPackage() {
 
       {/* ===== BODY ===== */}
       <div className="bg-white px-4 md:px-10 pb-24">
-
         {/* ===== PREMIUM PRICING CARDS ===== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
-                        gap-8 max-w-7xl mx-auto mt-20 mb-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mt-20 mb-28">
           {plans.map((plan, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -12, scale: 1.04 }}
               transition={{ duration: 0.4 }}
-              className="relative rounded-3xl p-[1.5px]
-                         bg-gradient-to-br from-[#01686d] via-[#f27b22] to-[#00444b]"
+              className="relative rounded-3xl p-[1.5px] bg-gradient-to-br from-[#01686d] via-[#f27b22] to-[#00444b]"
             >
               <div className="relative bg-white rounded-3xl p-8 h-full backdrop-blur-xl">
                 {plan.badge && (
@@ -119,29 +122,22 @@ export default function OurPackage() {
                     {plan.badge}
                   </span>
                 )}
-
-                <div className={`rounded-2xl text-white text-center py-8 mb-8
-                                 bg-gradient-to-r ${plan.gradient}`}>
-                  <h2 className="text-lg font-semibold tracking-wide">
-                    {plan.name}
-                  </h2>
-                  <p className="text-4xl font-extrabold mt-2">
-                    {plan.price}
-                  </p>
+                <div className={`rounded-2xl text-white text-center py-8 mb-8 bg-gradient-to-r ${plan.gradient}`}>
+                  <h2 className="text-lg font-semibold tracking-wide">{plan.name}</h2>
+                  <p className="text-4xl font-extrabold mt-2">{plan.price}</p>
                 </div>
-
                 <ul className="text-sm text-gray-600 space-y-2 mb-8">
                   <li>✔ SEO Optimized Website</li>
                   <li>✔ Mobile Responsive</li>
                   <li>✔ Fast Performance</li>
                   <li>✔ Secure Hosting</li>
                 </ul>
-
                 <button
                   className="w-full py-3 rounded-xl font-semibold text-white
                              bg-gradient-to-r from-[#01686d] to-[#00444b]
                              hover:from-[#00444b] hover:to-[#01686d]
-                             transition shadow-lg">
+                             transition shadow-lg"
+                >
                   Get Started
                 </button>
               </div>

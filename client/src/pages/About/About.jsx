@@ -4,56 +4,50 @@ import VisionSection from "./VisionSection";
 import WhySets from "./WhySets";
 import WhyChoose from "../Public/WhyChoose";
 import TeamMembers from "./TeamMembers";
-import { ShapeBeanOutline, ShapeBlobAOutline, ShapeChevronFilled, ShapeCircuit, ShapeHexagonFilled, ShapeQuadFilled, ShapeQuadOutline, ShapeSquareFilled, ShapeTriangleOutline } from "../../components/ui/Shapes/Shapes";
 
 const AboutSection = () => {
   return (
     <>
-      {/* ===== HEADER (WITH IMAGE BACKGROUND) ===== */}
+      {/* ===== HEADER ===== */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative w-full text-white py-24 px-5 text-center pt-32 sm:pt-36 overflow-hidden"
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative w-full py-28 sm:py-32 px-5 text-center overflow-hidden bg-[#e9f4f3]"
       >
-        {/* Background Image */}
-        <img
-          src="/img/servicess.png"  // <-- just added image background
-          alt="About Us Background"
-          className="absolute inset-0 w-full h-full object-cover object-center scale-105"
-        />
+        {/* ===== BACKGROUND SHAPES ===== */}
+        <div className="absolute -top-32 -left-32 w-[380px] h-[180px] bg-[#00444b] rotate-45 opacity-90" />
+        <div className="absolute top-24 left-40 w-[80px] h-[80px] bg-[#f27b22] rotate-45 shadow-lg" />
 
-        {/* Overlay (Gradient + Dark) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#01686d]/90 to-[#00444b]/90"></div>
+        <div className="absolute -bottom-36 -left-28 w-[380px] h-[180px] bg-[#01686d] rotate-45 opacity-90" />
+        <div className="absolute bottom-24 left-16 w-[240px] h-[6px] bg-[#f27b22] rotate-45" />
 
-        {/* CONTENT */}
-        <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+        <div className="absolute -top-36 -right-36 w-[400px] h-[200px] bg-[#00444b] rotate-45 opacity-90" />
+        <div className="absolute top-28 right-28 w-[200px] h-[6px] bg-[#f27b22] rotate-45" />
+
+        <div className="absolute -bottom-24 right-24 w-[100px] h-[100px] bg-[#f27b22] rotate-45 shadow-lg" />
+
+        {/* Soft Glass */}
+        <div className="absolute top-[35%] left-[30%] w-[200px] h-[200px] bg-[#01686d]/10 rotate-45 rounded-xl hidden sm:block" />
+        <div className="absolute bottom-[25%] right-[35%] w-[220px] h-[220px] bg-[#00444b]/10 rotate-45 rounded-xl hidden sm:block" />
+
+        {/* ===== CONTENT ===== */}
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00444b] mb-3">
             About Us
           </h1>
-          <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
-            Discover who we are and what drives our digital excellence.
+
+          {/* 👇 ENHANCED LINE */}
+          <p className="text-sm sm:text-base md:text-lg text-[#01686d] leading-relaxed">
+            Discover who we are, what we believe in, and what drives our digital
+            excellence to deliver real business growth.
           </p>
         </div>
       </motion.div>
 
-      {/* ===== ABOUT CONTENT SECTION ===== */}
-      <section className="relative w-full bg-white py-20 overflow-hidden">
-
-        {/* Soft Background Shapes */}
-
-        <div className="absolute bottom-[-250px] left-[200px] w-[300px] h-[300px] rotate-[0deg] z-[5]" >
-          <ShapeSquareFilled color="do" round="10" />
-        </div>
-        <div className="absolute top-[-90px] right-[200px] w-[150px] h-[150px] rotate-[-40deg] z-[5]" >
-          <ShapeQuadFilled color="t" />
-        </div>
-
-        <div className="absolute bottom-[40vh] right-[-80px] w-[200px] h-[200px] rotate-[-45deg] z-[5]" >
-          <ShapeTriangleOutline color="o" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center z-[10]">
+      {/* ===== ABOUT CONTENT ===== */}
+      <section className="relative w-full bg-white py-20 sm:py-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
           {/* LEFT CONTENT */}
           <motion.div
@@ -62,63 +56,57 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="relative text-4xl md:text-5xl font-bold text-[#00444b] leading-tight z-[10]">
-              <div className="absolute top-[0px] left-[0px]  translate-x-[-30%] translate-y-[-25%] h-[1.5em] rotate-[60deg] z-[-5]" >
-                <ShapeHexagonFilled color="o" />
-              </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00444b] leading-tight">
               Tirahut Tech – A Digital <br />
-              <span className="text-[#01686d]">
-                Marketing Company
-              </span>
+              <span className="text-[#01686d]">Marketing Company</span>
             </h2>
 
-            <div className="w-20 h-1 bg-[#f27b22] mt-6 mb-6 rounded-full" />
+            <div className="w-16 h-1 bg-[#f27b22] mt-5 mb-5 rounded-full" />
 
-            <p className="text-lg text-[#01686d] font-medium mb-4">
-              Discover our journey and what drives us.
+            <p className="text-base sm:text-lg text-[#01686d] font-medium mb-2">
+              We help brands grow digitally.
             </p>
 
-            <p className="text-gray-600 leading-relaxed mb-8 max-w-xl">
+            <p className="text-sm sm:text-base text-gray-600 mb-5 max-w-lg">
+              From strategy to execution, we build meaningful digital experiences
+              that create impact and measurable success.
+            </p>
+
+            <p className="text-gray-600 leading-relaxed mb-7 max-w-xl">
               We empower your brand through data-driven strategies, crafting
-              impactful marketing campaigns that resonate with your audience and
-              deliver measurable results that transform your business growth.
+              impactful marketing campaigns that truly connect with your audience.
             </p>
 
-            <button className="px-7 py-3 rounded-xl bg-[#01686d] text-white font-medium shadow-lg 
-                               hover:bg-[#00444b] transition flex items-center gap-2">
-              Learn More
-              <span className="text-[#f27b22] text-xl">→</span>
+            <button className="px-7 py-3 rounded-xl bg-[#01686d] text-white font-semibold shadow-lg 
+              hover:bg-[#00444b] transition flex items-center gap-2">
+              Learn More <span className="text-[#f27b22] text-xl">→</span>
             </button>
           </motion.div>
 
-          {/* RIGHT VIDEO / IMAGE */}
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative"
           >
-            <div className="absolute inset-0 rounded-3xl border-2 border-[#01686d]/30" />
-            <div className="relative rounded-3xl overflow-hidden shadow-xl">
+            <div className="rounded-3xl overflow-hidden shadow-2xl border border-[#01686d]/10">
               <img
-                src="/img/ik.jpg"
-                alt="About Section Visual"
-                className="w-full h-[300px] md:h-[420px] object-cover"
+                src=""
+                alt="About Visual"
+                className="w-full h-[260px] sm:h-[320px] md:h-[420px] object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-[#f27b22] rounded-2xl shadow-lg" />
           </motion.div>
 
         </div>
       </section>
 
+      {/* ===== EXTRA SECTIONS ===== */}
       <VisionSection />
       <WhySets />
       <WhyChoose />
       <TeamMembers />
-
-      <div className="w-full h-2 bg-gradient-to-r from-[#01686d] via-[#f27b22] to-[#00444b] mt-12" />
     </>
   );
 };
