@@ -1,9 +1,10 @@
-// Contact.jsx
-import React from "react";
+import React, { useState } from "react";
 import { FaMapMarkerAlt, FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiPhoneCall } from "react-icons/fi";
 import { motion } from "framer-motion";
+const API_URL = import.meta.env.VITE_API_URL;
+const Contact_Form_API = import.meta.env.VITE_CONTACT_FORM_API;
 
 const Contact = () => {
   const contactInfo = [
@@ -21,99 +22,165 @@ const Contact = () => {
 
   const iconVariants = { hover: { scale: 1.2, rotate: 10 } };
 
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    message: ""
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null); 
+ 
+    try {
+      const res = await fetch(`${API_URL}${Contact_Form_API}`, {
+        method: "POST",   
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
+
+      setStatus("success");
+      setFormData({
+        fullName: "",
+        email: "",
+        message: ""
+      });
+
+    } catch (err) {
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="w-full font-[Inter] bg-gray-50">
 
-      {/* HERO HEADER WITH IMAGE */}
-      <div className="relative w-full text-white py-24 px-5 sm:px-6 text-center pt-32 sm:pt-36 overflow-hidden">
-        {/* IMAGE TAG ADDED */}
+      {/* HERO */}
+      <div className="relative w-full text-white py-24 px-5 text-center pt-32 overflow-hidden">
         <img
-          src="/img/servicess.png" // <-- image added
-          alt="Contact Us Background"
-          className="absolute inset-0 w-full h-full object-cover object-center scale-105"
+          src="/img/servicess.png"
+          alt="Contact background"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
         />
-        {/* OVERLAY GRADIENT */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#01686d]/90 to-[#00444b]/90"></div>
-
-        {/* HEADER CONTENT */}
         <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">Contact Us</h1>
-          <p className="text-base sm:text-lg max-w-xl mx-auto opacity-90">
-            Reach out to us for any queries or support. We would love to hear from you!
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Contact Us</h1>
+          <p className="max-w-xl mx-auto opacity-90">
+            Reach out to us for any queries or support.
           </p>
         </div>
       </div>
 
-      {/* FORM + SOCIAL MEDIA SECTION */}
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* CONTENT */}
+      <div className="max-w-6xl mx-auto px-5 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-        {/* LEFT SIDE: CONTACT FORM */}
-        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col justify-center order-2 lg:order-2">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#00444b] mb-6 text-center lg:text-left">
+        {/* FORM */}
+        <div className="bg-white shadow-lg rounded-3xl p-10">
+          <h2 className="text-3xl font-bold text-[#00444b] mb-6">
             Send Us a Message
           </h2>
-          <form className="space-y-4">
+
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="text"
+                name="fullName"
                 placeholder="Full Name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#F27B22] outline-none transition duration-300"
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#F27B22] outline-none"
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#F27B22] outline-none transition duration-300"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#F27B22] outline-none"
               />
             </div>
+
             <textarea
+              name="message"
               placeholder="Your Message"
               rows="5"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#F27B22] outline-none transition duration-300"
-            ></textarea>
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#F27B22] outline-none"
+            />
+
             <button
               type="submit"
-              className="bg-[#F27B22] text-white px-6 py-3 rounded-xl hover:bg-[#e06b1d] transition w-full sm:w-auto block mx-auto lg:mx-0"
+              disabled={loading}
+              className="bg-[#F27B22] text-white px-6 py-3 rounded-xl hover:bg-[#e06b1d] transition disabled:opacity-60"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
+
+            {status === "success" && (
+              <p className="text-green-600 text-sm mt-2">
+                Message sent successfully.
+              </p>
+            )}
+
+            {status === "error" && (
+              <p className="text-red-600 text-sm mt-2">
+                Something went wrong. Please try again.
+              </p>
+            )}
           </form>
         </div>
 
-        {/* RIGHT SIDE: SOCIAL MEDIA + CONTACT INFO */}
-        <div className="bg-white shadow-lg rounded-3xl p-8 sm:p-10 flex flex-col justify-center items-center lg:items-start order-1 lg:order-1">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#00444b] mb-4 text-center lg:text-left">
+        {/* INFO */}
+        <div className="bg-white shadow-lg rounded-3xl p-10">
+          <h2 className="text-3xl font-bold text-[#00444b] mb-4">
             Follow & Contact Us
           </h2>
-          <p className="text-gray-600 mb-8 text-center lg:text-left">
-            Stay connected with us through our social channels for updates, news, and support.
-          </p>
 
-          {/* SOCIAL ICONS */}
           <div className="flex gap-4 mb-6">
-            {socialMedia.map((social, index) => (
+            {socialMedia.map((social, i) => (
               <motion.a
-                key={index}
+                key={i}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={iconVariants}
                 whileHover="hover"
-                className="w-14 h-14 flex items-center justify-center rounded-full bg-white text-[#00444b] hover:bg-[#F27B22] hover:text-white transition duration-300 shadow-md"
-                title={social.title}
+                className="w-14 h-14 flex items-center justify-center rounded-full shadow-md hover:bg-[#F27B22] hover:text-white transition"
               >
                 {social.icon}
               </motion.a>
             ))}
           </div>
 
-          {/* CONTACT INFO */}
-          <ul className="space-y-3 text-gray-600 w-full">
-            {contactInfo.map((item, index) => (
-              <li key={index} className="flex items-center gap-3">
-                <span className="p-3 rounded-md bg-[#01686d] text-white text-lg flex items-center justify-center">
+          <ul className="space-y-3">
+            {contactInfo.map((item, i) => (
+              <li key={i} className="flex items-center gap-3">
+                <span className="p-3 bg-[#01686d] text-white rounded-md">
                   {item.icon}
                 </span>
-                <span className="text-gray-800 font-medium">{item.info}</span>
+                <span>{item.info}</span>
               </li>
             ))}
           </ul>
