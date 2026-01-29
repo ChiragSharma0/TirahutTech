@@ -12,10 +12,10 @@ import { FiPhoneCall } from "react-icons/fi";
 
 function Footer() {
   const socialMedia = [
-    { icon: <FaFacebookF />, url: "https://facebook.com", title: "Facebook" },
+    { icon: <FaFacebookF />, url: "https://www.facebook.com/share/1N3mrzezfA/", title: "Facebook" },
     { icon: <FaTwitter />, url: "https://twitter.com", title: "Twitter" },
-    { icon: <FaLinkedinIn />, url: "https://linkedin.com", title: "LinkedIn" },
-    { icon: <FaInstagram />, url: "https://instagram.com", title: "Instagram" },
+    { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/in/tirahut-tech-7249323a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", title: "LinkedIn" },
+    { icon: <FaInstagram />, url: "https://www.instagram.com/tirahut_tech?igsh=MTNlc2Z1eW96bzQydQ==", title: "Instagram" },
   ];
 
   return (

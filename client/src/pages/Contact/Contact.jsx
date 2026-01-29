@@ -14,10 +14,10 @@ const Contact = () => {
   ];
 
   const socialMedia = [
-    { icon: <FaFacebookF />, url: "https://facebook.com", title: "Facebook" },
+    { icon: <FaFacebookF />, url: "https://www.linkedin.com/in/tirahut-tech-7249323a6", title: "Facebook" },
     { icon: <FaTwitter />, url: "https://twitter.com", title: "Twitter" },
-    { icon: <FaLinkedinIn />, url: "https://linkedin.com", title: "LinkedIn" },
-    { icon: <FaInstagram />, url: "https://instagram.com", title: "Instagram" },
+    { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/in/tirahut-tech-7249323a6", title: "LinkedIn" },
+    { icon: <FaInstagram />, url: "https://www.instagram.com/tirahut_tech", title: "Instagram" },
   ];
 
   const iconVariants = { hover: { scale: 1.2, rotate: 10 } };
@@ -69,28 +69,46 @@ const Contact = () => {
       setLoading(false);
     }
   };
-
+ 
   return (
     <div className="w-full font-[Inter] bg-gray-50">
 
-      {/* HERO */}
-      <div className="relative w-full text-white py-24 px-5 text-center pt-32 overflow-hidden">
-        <img
-          src="/img/servicess.png"
-          alt="Contact background"
-          className="absolute inset-0 w-full h-full object-cover scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#01686d]/90 to-[#00444b]/90"></div>
-        <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="max-w-xl mx-auto opacity-90">
-            Reach out to us for any queries or support.
+      {/* ===== HEADER (MATCHING SERVICES HEADER) ===== */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative w-full py-28 sm:py-32 px-5 text-center overflow-hidden bg-[#e9f4f3]"
+      >
+        {/* ===== BACKGROUND SHAPES ===== */}
+        <div className="absolute -top-32 -left-32 w-[380px] h-[180px] bg-[#00444b] rotate-45 opacity-90" />
+        <div className="absolute top-24 left-40 w-[80px] h-[80px] bg-[#f27b22] rotate-45 shadow-lg" />
+
+        <div className="absolute -bottom-36 -left-28 w-[380px] h-[180px] bg-[#01686d] rotate-45 opacity-90" />
+        <div className="absolute bottom-24 left-16 w-[240px] h-[6px] bg-[#f27b22] rotate-45" />
+
+        <div className="absolute -top-36 -right-36 w-[400px] h-[200px] bg-[#00444b] rotate-45 opacity-90" />
+        <div className="absolute top-28 right-28 w-[200px] h-[6px] bg-[#f27b22] rotate-45" />
+
+        <div className="absolute -bottom-24 right-24 w-[100px] h-[100px] bg-[#f27b22] rotate-45 shadow-lg" />
+
+        {/* Soft Glass */}
+        <div className="absolute top-[35%] left-[30%] w-[200px] h-[200px] bg-[#01686d]/10 rotate-45 rounded-xl hidden sm:block" />
+        <div className="absolute bottom-[25%] right-[35%] w-[220px] h-[220px] bg-[#00444b]/10 rotate-45 rounded-xl hidden sm:block" />
+
+        {/* ===== HEADER CONTENT ===== */}
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00444b] mb-3">
+            Contact Us
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-[#01686d] leading-relaxed">
+            Reach out to us for any queries or support. We would love to hear from you!
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      {/* CONTENT */}
-      <div className="max-w-6xl mx-auto px-5 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* FORM + SOCIAL MEDIA SECTION */}
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
 
         {/* FORM */}
         <div className="bg-white shadow-lg rounded-3xl p-10">

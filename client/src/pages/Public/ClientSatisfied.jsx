@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const ClientSatisfied = () => {
   return (
     <section
@@ -39,10 +39,10 @@ const ClientSatisfied = () => {
         {/* STATS GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-14">
           {[
-            { value: "130M+", label: "Users Globally" },
-            { value: "150+", label: "Countries Served" },
-            { value: "18K+", label: "Employees" },
-            { value: "29+", label: "Years in Business" },
+            { value: "10", label: "Projects Complete" },
+            { value: "6+", label: "Happy Clients" },
+            { value: "7+", label: "Delivered Project" },
+            { value: "27/4+", label: "Support/Available" },
           ].map((item, index) => (
             <div key={index} className="flex flex-col items-start">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
@@ -57,20 +57,22 @@ const ClientSatisfied = () => {
         </div>
 
         {/* BUTTON */}
-        <div className="mt-16">
-          <button
-            className="
-              px-8 py-4
-              text-base sm:text-lg font-semibold
-              rounded-xl shadow-lg
-              bg-[#f27b22]
-              hover:bg-[#e56f1c]
-              transition-all duration-300
-            "
-          >
-            MORE ABOUT TRIHUT →
-          </button>
-        </div>
+       <div className="mt-16">
+  <Link to="/about">
+    <button
+      className="
+        px-8 py-4
+        text-base sm:text-lg font-semibold
+        rounded-xl shadow-lg
+        bg-[#f27b22]
+        hover:bg-[#e56f1c]
+        transition-all duration-300
+      "
+    >
+      MORE ABOUT TRIHUT →
+    </button>
+  </Link>
+</div>
       </div>
     </section>
   );
