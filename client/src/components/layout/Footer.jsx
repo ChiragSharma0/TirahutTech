@@ -1,5 +1,6 @@
 // Footer.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaMapMarkerAlt,
   FaFacebookF,
@@ -54,10 +55,18 @@ function Footer() {
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">Company</h3>
           <ul className="space-y-2">
-            <li className="hover:text-[#F27B22] cursor-pointer">About Us</li>
-            <li className="hover:text-[#F27B22] cursor-pointer">Products</li>
-            <li className="hover:text-[#F27B22] cursor-pointer">Services</li>
-            <li className="hover:text-[#F27B22] cursor-pointer">Careers</li>
+            <li>
+              <Link to="/about" className="hover:text-[#F27B22] transition">About Us</Link>
+            </li>
+            <li>
+              <Link to="/product" className="hover:text-[#F27B22] transition">Products</Link>
+            </li>
+            <li>
+              <Link to="/service" className="hover:text-[#F27B22] transition">Services</Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-[#F27B22] transition">Contact</Link>
+            </li>
           </ul>
         </div>
 
@@ -65,10 +74,18 @@ function Footer() {
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">Explore</h3>
           <ul className="space-y-2">
-            <li className="hover:text-[#F27B22] cursor-pointer">Blog</li>
-            <li className="hover:text-[#F27B22] cursor-pointer">Portfolio</li>
-            <li className="hover:text-[#F27B22] cursor-pointer">Packages</li>
-            <li className="hover:text-[#F27B22] cursor-pointer">Contact</li>
+            <li>
+              <Link to="/blog" className="hover:text-[#F27B22] transition">Blog</Link>
+            </li>
+            <li>
+              <Link to="" className="hover:text-[#F27B22] transition">Portfolio</Link>
+            </li>
+            <li>
+              <Link to="/our-package" className="hover:text-[#F27B22] transition">Packages</Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-[#F27B22] transition">Contact</Link>
+            </li>
           </ul>
         </div>
 
@@ -80,19 +97,19 @@ function Footer() {
               <span className="p-2 rounded-md bg-[#01686d] hover:bg-[#F27B22]">
                 <FaMapMarkerAlt />
               </span>
-              123 Business Street, City, Country
+              14th Avenue, Gaur City 2, Greater Noida, Uttar Pradesh – 203201, India
             </li>
             <li className="flex items-center gap-3 hover:text-[#F27B22] transition">
               <span className="p-2 rounded-md bg-[#01686d] hover:bg-[#F27B22]">
                 <HiOutlineMail />
               </span>
-              contact@trinit.com
+              tirahuttech@gmail.com
             </li>
             <li className="flex items-center gap-3 hover:text-[#F27B22] transition">
               <span className="p-2 rounded-md bg-[#01686d] hover:bg-[#F27B22]">
                 <FiPhoneCall />
               </span>
-              +91 9876543210
+              +91 8130654209
             </li>
           </ul>
         </div>

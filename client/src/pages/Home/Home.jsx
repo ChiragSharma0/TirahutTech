@@ -1,35 +1,15 @@
 // src/components/Home.jsx
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { FaArrowUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+
 import TrihutTech from "../Public/TrihutTech";
 import EnterpriseSection from "../Public/EnterpriseSection";
 import ClientSatisfied from "../Public/ClientSatisfied";
 import Packages from "../Public/Package";
-import { FaArrowUp, FaTimes } from "react-icons/fa";
-
-
-import WhyChoose from "../Public/WhyChoose";
-
-import {
-  FaArrowUp,
-  FaTimes,
-  FaLinkedinIn,
-  FaInstagram,
-  FaWhatsapp,
-  FaFacebookF,
-  FaLongArrowAltLeft  // updated arrow icon
-} from "react-icons/fa";
-
-import DevelopmentProcess from "../Public/DevelopmentProcess";
-import SeoHero from "../Public/SeoHero";
-import FAQSection from "../Public/FAQSection";
-import ReadyToTransform from "../Public/ReadyToTransform";
-import { ShapeChevronFilled } from "../../components/ui/Shapes/Shapes";
 import PopupForm from "../../components/forms/PopupForm";
-
-
-
-
 
 // MAIN HOME COMPONENT
 const Home = () => {
@@ -41,11 +21,12 @@ const Home = () => {
     const handleScroll = () => {
       setShowScroll(window.scrollY > 300);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Show popup instantly
+  // Show popup instantly on load
   useEffect(() => {
     setShowPopup(true);
   }, []);
@@ -59,6 +40,7 @@ const Home = () => {
       {/* HERO SECTION */}
       <div className="w-full min-h-screen bg-white flex items-center justify-center px-6 pt-32 sm:pt-36 md:pt-28 lg:pt-28 pb-16">
         <div className="max-w-7xl w-full grid md:grid-cols-2 grid-cols-1 items-center gap-10">
+          {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -66,29 +48,36 @@ const Home = () => {
             className="text-[#0b2f32] md:text-left text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Business software <br /> made simple
+              Custom IT services <br /> made simple
             </h1>
 
             <p className="text-[17px] text-gray-700 mt-5 leading-relaxed max-w-xl mx-auto md:mx-0">
-              All-in-one CRM, HRM, POS & ERP built for Indian SMEs,
-              Cloud native, GST-ready & WhatsApp integrated.
+             Professional IT & software services for Indian SMEs,
+Cloud-native, GST-ready & WhatsApp integration.
+
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
-              <button className="px-7 py-3 bg-[#01686d] text-white font-semibold rounded-lg border border-[#01686d] hover:bg-[#00444b] transition">
-                Request Demo
-              </button>
+       <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
+  <Link to="/contact">
+    <button className="px-7 py-3 bg-[#01686d] text-white font-semibold rounded-lg border border-[#01686d] hover:bg-[#00444b] transition">
+      Request Demo
+    </button>
+  </Link>
 
-              <button className="px-7 py-3 bg-white text-[#01686d] font-semibold rounded-lg border border-[#01686d] hover:bg-[#f1f1f1] transition">
-                Explore Products
-              </button>
-            </div>
+  <Link to="/services">
+    <button className="px-7 py-3 bg-white text-[#01686d] font-semibold rounded-lg border border-[#01686d] hover:bg-[#f1f1f1] transition">
+      Explore Services
+    </button>
+  </Link>
+</div>
+
 
             <p className="text-lg mt-10 text-[#01686d] font-medium">
               Trinit for the Businesses
             </p>
           </motion.div>
 
+          {/* RIGHT IMAGE */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,7 +108,6 @@ const Home = () => {
           onClick={scrollToTop}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
           whileHover={{ scale: 1.2 }}
           className="fixed bottom-8 right-8 z-50 bg-[#01686d] text-white p-4 rounded-full shadow-lg hover:bg-[#00444b] transition-all"
         >

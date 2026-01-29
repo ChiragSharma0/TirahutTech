@@ -32,7 +32,7 @@ function VisionSection() {
 
         {/* CTA – NO BACKGROUND */}
         <a
-          href="#"
+          href="/service"
           className="
             inline-flex items-center gap-2
             text-base md:text-lg font-semibold text-white

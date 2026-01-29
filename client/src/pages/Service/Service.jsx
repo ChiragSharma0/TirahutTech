@@ -55,7 +55,7 @@ const Services = () => {
       link: "/service/automation",
     },
     {
-      title: "Marketing",
+      title: "Marketing And SEO",
       icon: <FaBullhorn />,
       color: "#F27B22",
       desc: "Grow your business with digital marketing strategies.",

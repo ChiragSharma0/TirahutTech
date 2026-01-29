@@ -57,8 +57,8 @@ const AboutSection = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00444b] leading-tight">
-              Tirahut Tech – A Digital <br />
-              <span className="text-[#01686d]">Marketing Company</span>
+            Tirahut Tech – Innovative <br />
+    <span className="text-[#01686d]">Software & IT Solutions</span>
             </h2>
 
             <div className="w-16 h-1 bg-[#f27b22] mt-5 mb-5 rounded-full" />
@@ -92,7 +92,7 @@ const AboutSection = () => {
           >
             <div className="rounded-3xl overflow-hidden shadow-2xl border border-[#01686d]/10">
               <img
-                src=""
+                src="/img/ab.png"
                 alt="About Visual"
                 className="w-full h-[260px] sm:h-[320px] md:h-[420px] object-cover"
               />

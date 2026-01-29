@@ -8,9 +8,9 @@ const Contact_Form_API = import.meta.env.VITE_CONTACT_FORM_API;
 
 const Contact = () => {
   const contactInfo = [
-    { icon: <FaMapMarkerAlt />, title: "Address", info: "123 Business Street, City, Country" },
-    { icon: <HiOutlineMail />, title: "Email", info: "contact@trinit.com" },
-    { icon: <FiPhoneCall />, title: "Phone", info: "+91 9876543210" },
+    { icon: <FaMapMarkerAlt />, title: "Address", info: "14th Avenue, Gaur City 2, Greater Noida, Uttar Pradesh – 203201, India\nLandmark Near D.F. Place" },
+    { icon: <HiOutlineMail />, title: "Email", info: "tirahuttech@gmail.com" },
+    { icon: <FiPhoneCall />, title: "Phone", info: "+91 8130654209" },
   ];
 
   const socialMedia = [

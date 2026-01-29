@@ -20,9 +20,9 @@ function TrihutTech() {
   return (
     <div className="w-full min-h-[calc(100vh_-_80px)] bg-[#F4F4F4] font-[Inter]">
 
-      {/* ========= TOP ORANGE BANNER ========= */}
-      <section className="w-full flex justify-center px-4 sm:px-6 lg:px-10 mt-140 mb-[-160px] relative z-20">
-        <div className="bg-[url(/img/Banner.webp)] bg-cover  bg-no-repeat text-white rounded-3xl w-full max-w-7xl shadow-xl p-8 sm:p-12 flex flex-col lg:flex-row items-center gap-10">
+      {/* ========= TOP BANNER ========= */}
+      <section className="w-full flex justify-center px-4 sm:px-6 lg:px-10 mt-40 mb-[-160px] relative z-20">
+        <div className="bg-[url(/img/Banner.webp)] bg-cover bg-no-repeat text-white rounded-3xl w-full max-w-7xl shadow-xl p-8 sm:p-12 flex flex-col lg:flex-row items-center gap-10">
           <div className="max-w-lg space-y-6 text-center lg:text-left">
             <p className="text-base sm:text-lg">
               To build anything that truly lasts,
@@ -41,7 +41,7 @@ function TrihutTech() {
         </div>
       </section>
 
-      {/* ========= GREEN MAIN SECTION ========= */}
+      {/* ========= MAIN SECTION ========= */}
       <section
         className="w-full bg-gradient-to-r from-[#01686d] to-[#00444b]
                    px-6 sm:px-10 lg:px-40
@@ -49,10 +49,10 @@ function TrihutTech() {
                    flex flex-col lg:flex-row justify-between items-center gap-16"
       >
         {/* LEFT CONTENT */}
-        <div className="max-w-xl space-y-6 text-white text-center lg:text-left relative">
+        <div className="max-w-xl space-y-6 text-white text-center lg:text-left">
 
           <div className="flex items-center justify-center lg:justify-start gap-4">
-            <img src="./img/logo.png" alt="Logo" className="w-12" />
+            <img src="/img/logo.png" alt="Logo" className="w-12" />
             <p className="text-lg text-white/90">All-in-one suite</p>
           </div>
 
@@ -67,7 +67,7 @@ function TrihutTech() {
             software, designed to break down silos and increase efficiency.
           </p>
 
-          {/* ========= BUTTON + RESPONSIVE DROPDOWN ========= */}
+          {/* BUTTON + DROPDOWN */}
           <div className="relative inline-block" ref={dropdownRef}>
             <button
               onClick={() => setOpenDropdown(!openDropdown)}
@@ -79,82 +79,64 @@ function TrihutTech() {
                          transition-all duration-300 hover:scale-[1.03]"
             >
               TRY TIRAHUT TECH
-              <span className="transition-transform duration-300">
-                ▸
-              </span>
+              <span>▸</span>
             </button>
 
             {openDropdown && (
-              <div
-                className="
-                  absolute z-50 w-64
-                  bg-white/95 backdrop-blur-xl
-                  rounded-2xl shadow-2xl
-                  border border-gray-100 overflow-hidden
-
-                  /* Mobile */
-                  left-0 top-full mt-4
-
-                  /* Desktop */
-                  md:left-full md:top-0 md:mt-0 md:ml-4
-                "
-              >
+              <div className="absolute z-50 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden
+                              left-0 top-full mt-4 md:left-full md:top-0 md:mt-0 md:ml-4">
                 <Link
                   to="/service"
-                  className="group w-full px-6 py-5 flex items-center gap-3
-                             text-gray-800 font-medium transition-all duration-300
-                             hover:bg-gradient-to-r hover:from-[#01686d] hover:to-[#00444b]
-                             hover:text-white"
                   onClick={() => setOpenDropdown(false)}
+                  className="flex items-center gap-3 px-6 py-5 text-gray-800 font-medium
+                             hover:bg-gradient-to-r hover:from-[#01686d] hover:to-[#00444b]
+                             hover:text-white transition"
                 >
-                  <span className="text-xl group-hover:scale-110 transition">
-                    🚀
-                  </span>
-                  <span className="flex-1">Service</span>
-                  <span className="opacity-0 group-hover:opacity-100 transition">
-                    →
-                  </span>
+                  🚀 <span className="flex-1">Service</span> →
                 </Link>
 
                 <Link
                   to="/product"
-                  className="group w-full px-6 py-5 flex items-center gap-3
-                             text-gray-800 font-medium transition-all duration-300
-                             hover:bg-gradient-to-r hover:from-[#f27b22] hover:to-[#d96c1f]
-                             hover:text-white"
                   onClick={() => setOpenDropdown(false)}
+                  className="flex items-center gap-3 px-6 py-5 text-gray-800 font-medium
+                             hover:bg-gradient-to-r hover:from-[#f27b22] hover:to-[#d96c1f]
+                             hover:text-white transition"
                 >
-                  <span className="text-xl group-hover:scale-110 transition">
-                    📦
-                  </span>
-                  <span className="flex-1">Product</span>
-                  <span className="opacity-0 group-hover:opacity-100 transition">
-                    →
-                  </span>
+                  📦 <span className="flex-1">Product</span> →
                 </Link>
               </div>
             )}
           </div>
         </div>
 
-        {/* RIGHT CONTENT */}
-        <div className="max-w-xl text-black text-center lg:text-right space-y-6 shadow-[10px_10px_0_0] shadow-orange-500 bg-white border-[2px] border-orange-500 rounded-[20px] p-6">
-          <span className="text-5xl text-orange">“</span>
+        {/* RIGHT TESTIMONIAL CARD */}
+        <div className="max-w-xl bg-white rounded-2xl p-8
+                        border-2 border-orange-500
+                        shadow-[10px_10px_0_0] shadow-orange-500
+                        text-center lg:text-left space-y-6">
 
-          <p className="text-2xl leading-relaxed">
+          <span className="text-6xl text-orange-500 leading-none">“</span>
+
+          <p className="text-2xl text-gray-800 leading-relaxed">
             You can be a startup, mid-sized company, or enterprise —
             Tirahut Tech One works for all.
           </p>
 
-          <div className="flex items-center gap-4 justify-center lg:justify-end">
+          <div className="flex items-center gap-4 justify-center lg:justify-start pt-4 ">
             <img
-              src="https://tse4.mm.bing.net/th/id/OIP.Kk4i-k-7bOfsgPv0SJtj5AHaHa?pid=Api"
+              src="/empimg/rupesh.jpg"
               alt="CEO"
-              className="w-20 h-20 rounded-full border-2 border-white"
+              className="w-20 h-20 rounded-full object-cover
+           ring-4 ring-orange-500 shadow-md"
             />
-            <div>
-              <h3 className="text-xl font-bold">Prakarsh Gagdani</h3>
-              <p className="text-sm text-white/80">CEO, 5paisa.com</p>
+
+            <div className="text-left">
+              <h3 className="text-xl font-bold text-gray-900">
+                Kautilya
+              </h3>
+              <p className="text-sm text-gray-500">
+                CEO, 5paisa.com
+              </p>
             </div>
           </div>
         </div>
