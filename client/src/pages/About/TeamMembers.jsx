@@ -8,12 +8,34 @@ import {
 } from "../../components/ui/Shapes/Shapes";
 
 const teamMembers = [
+
+    {
+    name: "Chirag Sharma",
+    tag: "General Manager / COO",
+    image: "/empimg/chirag.jpg",
+    social: {
+      linkedin: "https://linkedin.com",
+      instagram: "https://instagram.com",
+      website: "https://example.com",
+    },
+  },
   {
     name: "Chandra Prakash",
     tag: "Technical Director",
     image: "/empimg/chandra.jpg",
     social: {
       linkedin: "https://linkedin.com",
+      instagram: "https://instagram.com",
+      website: "https://example.com",
+    },
+  },
+
+    {
+    name: "Bhaskar Singh",
+    tag: "Head of Projects",
+    image: "/empimg/bhaskar.jpg",
+    social: {
+      linkedin: "https://www.linkedin.com/in/bhaskar-singh-130b38352",
       instagram: "https://instagram.com",
       website: "https://example.com",
     },
@@ -30,29 +52,9 @@ const teamMembers = [
     },
   },
 
-  {
-    name: "Chirag Sharma",
-    tag: "General Manager / COO",
-    image: "/empimg/chirag.jpg",
-    social: {
-      linkedin: "https://linkedin.com",
-      instagram: "https://instagram.com",
-      website: "https://example.com",
-    },
-  },
-  {
-    name: "Bhaskar Singh",
-    tag: "Head of Projects",
-    image: "/empimg/bhaskar.jpg",
-    social: {
-      linkedin: "https://www.linkedin.com/in/bhaskar-singh-130b38352",
-      instagram: "https://instagram.com",
-      website: "https://example.com",
-    },
-  },
 
     {
-    name: "Rupesh Kumar Jha",
+    name: "Kautilya",
     tag: "Founder & CEO",
     image: "/empimg/rupesh.jpg",
     social: {
