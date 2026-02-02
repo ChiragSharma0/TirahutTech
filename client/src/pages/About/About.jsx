@@ -1,11 +1,13 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import VisionSection from "./VisionSection";
 import WhySets from "./WhySets";
 import WhyChoose from "../Public/WhyChoose";
 import TeamMembers from "./TeamMembers";
 
 const AboutSection = () => {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <>
       {/* ===== HEADER ===== */}
@@ -36,8 +38,6 @@ const AboutSection = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00444b] mb-3">
             About Us
           </h1>
-
-          {/* 👇 ENHANCED LINE */}
           <p className="text-sm sm:text-base md:text-lg text-[#01686d] leading-relaxed">
             Discover who we are, what we believe in, and what drives our digital
             excellence to deliver real business growth.
@@ -57,14 +57,14 @@ const AboutSection = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00444b] leading-tight">
-            Tirahut Tech – Innovative <br />
-    <span className="text-[#01686d]">Software & IT Solutions</span>
+              Tirahut Tech – Innovative <br />
+              <span className="text-[#01686d]">Software & IT Solutions</span>
             </h2>
 
             <div className="w-16 h-1 bg-[#f27b22] mt-5 mb-5 rounded-full" />
 
             <p className="text-base sm:text-lg text-[#01686d] font-medium mb-2">
-              We help brands grow digitally.
+              We help businesses grow through technology
             </p>
 
             <p className="text-sm sm:text-base text-gray-600 mb-5 max-w-lg">
@@ -72,14 +72,38 @@ const AboutSection = () => {
               that create impact and measurable success.
             </p>
 
-            <p className="text-gray-600 leading-relaxed mb-7 max-w-xl">
-              We empower your brand through data-driven strategies, crafting
-              impactful marketing campaigns that truly connect with your audience.
-            </p>
+            {/* EXPANDABLE CONTENT */}
+            <AnimatePresence>
+              {showMore && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="text-gray-600 leading-relaxed mb-6 max-w-xl overflow-hidden"
+                >
+                  From strategy to execution, Tirahut Tech partners with
+                  organizations to design, build, and scale technology that
+                  delivers real business impact. We work across software
+                  development, automation, digital platforms, and IT services—
+                  creating solutions that are practical, scalable, and
+                  future-ready.
+                  <br /><br />
+                  We go beyond delivery. Through data-driven decision-making,
+                  deep technical expertise, and dedicated technology teams, we
+                  help businesses streamline operations, strengthen digital
+                  presence, and adapt confidently to evolving market demands.
+                </motion.p>
+              )}
+            </AnimatePresence>
 
-            <button className="px-7 py-3 rounded-xl bg-[#01686d] text-white font-semibold shadow-lg 
-              hover:bg-[#00444b] transition flex items-center gap-2">
-              Learn More <span className="text-[#f27b22] text-xl">→</span>
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="px-7 py-3 rounded-xl bg-[#01686d] text-white font-semibold shadow-lg 
+              hover:bg-[#00444b] transition flex items-center gap-2"
+            >
+              {showMore ? "Show Less" : "Learn More"}
+              <span className="text-[#f27b22] text-xl">→</span>
             </button>
           </motion.div>
 
@@ -92,7 +116,7 @@ const AboutSection = () => {
           >
             <div className="rounded-3xl overflow-hidden shadow-2xl border border-[#01686d]/10">
               <img
-                src="/img/ab.png"
+                src="/empimg/ao.jpg"
                 alt="About Visual"
                 className="w-full h-[260px] sm:h-[320px] md:h-[420px] object-cover"
               />

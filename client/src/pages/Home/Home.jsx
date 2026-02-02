@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { FaArrowUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
 import TrihutTech from "../Public/TrihutTech";
 import EnterpriseSection from "../Public/EnterpriseSection";
 import ClientSatisfied from "../Public/ClientSatisfied";
@@ -21,7 +20,6 @@ const Home = () => {
     const handleScroll = () => {
       setShowScroll(window.scrollY > 300);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -47,30 +45,31 @@ const Home = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-[#0b2f32] md:text-left text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Custom IT services <br /> made simple
-            </h1>
+            {/* MAIN HEADING */}
+             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+    Tailored Tech<br /> Simplified Growth
+  </h1>
 
+            {/* SUPPORTING PARAGRAPH */}
             <p className="text-[17px] text-gray-700 mt-5 leading-relaxed max-w-xl mx-auto md:mx-0">
-             Professional IT & software services for Indian SMEs,
-Cloud-native, GST-ready & WhatsApp integration.
-
+              Custom software, automation, and IT services—
+delivered as solutions or dedicated tech teams.
             </p>
 
-       <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
-  <Link to="/contact">
-    <button className="px-7 py-3 bg-[#01686d] text-white font-semibold rounded-lg border border-[#01686d] hover:bg-[#00444b] transition">
-      Request Demo
-    </button>
-  </Link>
+            {/* BUTTONS */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
+              <Link to="/contact">
+                <button className="px-7 py-3 bg-[#01686d] text-white font-semibold rounded-lg border border-[#01686d] hover:bg-[#00444b] transition">
+                  Request Demo
+                </button>
+              </Link>
 
-  <Link to="/services">
-    <button className="px-7 py-3 bg-white text-[#01686d] font-semibold rounded-lg border border-[#01686d] hover:bg-[#f1f1f1] transition">
-      Explore Services
-    </button>
-  </Link>
-</div>
-
+              <Link to="/service">
+                <button className="px-7 py-3 bg-white text-[#01686d] font-semibold rounded-lg border border-[#01686d] hover:bg-[#f1f1f1] transition">
+                  Explore Services
+                </button>
+              </Link>
+            </div>
 
             <p className="text-lg mt-10 text-[#01686d] font-medium">
               Trinit for the Businesses

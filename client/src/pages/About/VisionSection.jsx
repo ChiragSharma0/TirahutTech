@@ -18,7 +18,8 @@ function VisionSection() {
 
         {/* HEADING – SINGLE LINE */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-7">
-          Building brands & systems that are made to last
+          Building technology & systems
+that are made to last
         </h2>
 
         {/* DIVIDER */}
@@ -26,8 +27,8 @@ function VisionSection() {
 
         {/* DESCRIPTION */}
         <p className="text-base md:text-lg leading-relaxed text-white/90 mb-10">
-          We focus on long-term impact — creating meaningful digital experiences,
-          strong brand foundations, and scalable solutions that grow with you.
+          Long-term, scalable solutions built to grow with your business.
+
         </p>
 
         {/* CTA – NO BACKGROUND */}
