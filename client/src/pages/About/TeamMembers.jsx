@@ -68,6 +68,7 @@ const teamMembers = [
 
 const TeamCard = ({ member }) => {
   const isChandra = member.name === "Chandra Prakash";
+  const isChirag = member.name === "Chirag Sharma";
 
   return (
     <motion.div
@@ -93,6 +94,8 @@ const TeamCard = ({ member }) => {
               className={`
                 w-full h-full object-cover
                 ${isChandra ? "object-center" : "object-[center_20%]"}
+                ${isChirag ? "min-h-[120%]" : ""}
+
               `}
             />
           ) : (
