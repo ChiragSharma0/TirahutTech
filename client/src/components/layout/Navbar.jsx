@@ -107,16 +107,16 @@ const Navbar = () => {
       title: "SEO Package",
       desc: "Rank Higher on Google",
       icon: <MdOutlineManageSearch size={18} />,
-      path: "/our-package/seo",
+      path: "SEOPackage",
     },
     {
-      title: "Web Package",
+      title: "Web & App Package",
       desc: "Modern Business Website",
       icon: <HiOutlineGlobe size={18} />,
-      path: "/our-package/web",
+      path: "/our-package",
     },
     {
-      title: "PPC Package",
+      title: "Automation Package",
       desc: "Boost Paid Campaigns",
       icon: <MdOutlineAdsClick size={18} />,
       path: "/our-package/ppc",
@@ -125,7 +125,7 @@ const Navbar = () => {
       title: "SMO Package",
       desc: "Grow Social Presence",
       icon: <FaBullhorn size={18} />,
-      path: "/our-package/smo",
+      path: "/SMOPackage",
     },
   ];
 
