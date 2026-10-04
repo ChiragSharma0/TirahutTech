@@ -1,24 +1,16 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "tirahut-server",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning index.js",
+    "dev": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning --watch index.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test.js"
+  },
   "dependencies": {
-    "axios": "^1.13.4",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "mongoose": "^8.20.1",
-    "nodemon": "^3.1.11",
-    "ua-parser-js": "^2.0.6",
-    "uuid": "^8.3.2"
+    "@google-analytics/data": "^7.2.1"
   }
 }

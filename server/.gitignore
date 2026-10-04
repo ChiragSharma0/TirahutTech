@@ -1,11 +1,4 @@
-# dependencies
-node_modules/
-server/node_modules/
-
-# env
+node_modules
 .env
-.env.local
-
-# build
-dist/
-build/
+data.db*
+*service-account*.json

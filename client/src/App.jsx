@@ -1,73 +1,42 @@
-import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { lazy, Suspense } from 'react'
+import { Navigate, Route, Routes, useParams } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import ServicesPage from './pages/ServicesPage'
+import SolutionsPage from './pages/SolutionsPage'
+import WorkPage from './pages/WorkPage'
+import AboutPage from './pages/AboutPage'
+import BlogPage from './pages/BlogPage'
+import BlogPostPage from './pages/BlogPostPage'
+import ContactPage from './pages/ContactPage'
+import NotFound from './pages/NotFound'
 
-// Components Pages
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-import ScrollToTop from "./components/ui/ScrollToTop"
+const AdminPage = lazy(() => import('./pages/AdminPage')) // kept out of the public bundle
 
-// Pages
-import Home from "./pages/Home/Home";
-import Products from "./pages/Product/Product";
-import Services from "./pages/Service/Service";
-import About from "./pages/About/About";
-import OurPackage from "./pages/Package/OurPackage.jsx";
-import SMOPackage from "./pages/Package/SMOPackage.jsx"
-import SEOPackage from "./pages/Package/SEOPackage.jsx"
-import Contact from "./pages/Contact/Contact";
+// Old-site URLs (/services/<slug>, /service/<slug>) open the matching tab on /services.
+function LegacyServiceRedirect() {
+  const { slug } = useParams()
+  return <Navigate to={slug ? `/services#${slug}` : '/services'} replace />
+}
 
-// Service DropDown Pages
-import AppDevelopment from "./pages/Service/Services/AppDevelopemnt";
-import WebDevelopment from "./pages/Service/Services/WebDevelopment";
-import ECommerceDevelopment from "./pages/Service/Services/EcommerceDevelopment";
-import Marketing from "./pages/Service/Services/Marketing";
-import CustomerSoftawre from "./pages/Service/Services/CustomerSoftware";
-import Automation from "./pages/Service/Services/Automation";
-import { trackPage } from "./Config/Track.js";
-import Dashboard from "./pages/ADMIN/Dashboard.jsx";
-import Blog from "./pages/Blog/Blog.jsx";
-
-const App = () => {
-
-
-
-  const location = useLocation();
-
-  useEffect(() => {
-    trackPage("Page View");
-  }, [location.pathname]);
-
+export default function App() {
   return (
-    <>
-      <Navbar />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        cd
-        {/*         <Route path="/product" element={<Products />} />
- */}        <Route path="/service" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/our-package" element={<OurPackage />} />
-        <Route path="/SMOPackage" element={<SMOPackage/>} />
-        <Route path="SEOPackage" element={<SEOPackage/>} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-
-        {/* Service DropDown Routes */}
-        <Route path="/service/app-development" element={<AppDevelopment />} />
-        <Route path="/service/web-development" element={<WebDevelopment />} />
-        <Route path="/service/ecommerce-development" element={<ECommerceDevelopment />} />
-        <Route path="/service/marketing" element={<Marketing />} />
-        <Route path="/service/customer-software" element={<CustomerSoftawre />} />
-        <Route path="/service/automation" element={<Automation />} />
-
-      </Routes>
-
-      <Footer />
-    </>
-  );
-};
-
-export default App;
+    <Routes>
+      <Route path="admin" element={<Suspense><AdminPage /></Suspense>} />
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="services" element={<ServicesPage />} />
+        <Route path="services/:slug" element={<LegacyServiceRedirect />} />
+        <Route path="service/:slug?" element={<LegacyServiceRedirect />} />
+        <Route path="our-package" element={<Navigate to="/services" replace />} />
+        <Route path="solutions" element={<SolutionsPage />} />
+        <Route path="work" element={<WorkPage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="blog" element={<BlogPage />} />
+        <Route path="blog/:slug" element={<BlogPostPage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+  )
+}
